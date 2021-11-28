@@ -1,6 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
+  :root {
+    --color-transition: 'none';
+  }
 
   *, *:before, *:after {
     box-sizing: border-box;
@@ -8,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     background: var(--color-background);
-    transition: background-color 0.5s ease;
+    transition: var(--color-transition);
   }
 `;
 

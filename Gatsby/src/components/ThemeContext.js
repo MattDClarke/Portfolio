@@ -36,6 +36,11 @@ export const ThemeProvider = ({ children }) => {
         const cssVarName = `--color-${name}`;
 
         root.style.setProperty(cssVarName, colorByTheme[newValue]);
+        // none before React app mounted - so that no transition on page load
+        root.style.setProperty(
+          '--color-transition',
+          'background-color 0.4s ease'
+        );
       });
 
       rawSetColorMode(newValue);

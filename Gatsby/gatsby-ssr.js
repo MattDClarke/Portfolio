@@ -5,7 +5,7 @@ import {
   COLOR_MODE_KEY,
   COLORS,
   INITIAL_COLOR_MODE_CSS_PROP,
-} from './src/constants';
+} from './src/utils/constants';
 
 import App from './src/components/App';
 
