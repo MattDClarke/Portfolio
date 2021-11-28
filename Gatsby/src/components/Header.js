@@ -5,14 +5,12 @@ import { ThemeContext } from './ThemeContext';
 
 import DarkToggle from './DarkToggle';
 
-const Header = ({ siteTitle }) => {
-  return (
-    <Wrapper>
-      {siteTitle}
-      <DarkToggle />
-    </Wrapper>
-  );
-};
+const Header = ({ siteTitle }) => (
+  <Wrapper>
+    {siteTitle}
+    <DarkToggle />
+  </Wrapper>
+);
 
 const Wrapper = styled.header`
   display: flex;

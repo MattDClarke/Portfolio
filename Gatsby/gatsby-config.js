@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Dark Mode (minimal example)`,
-    description: `An MVP dark-mode, from scratch.`,
-    author: `@gatsbyjs`,
+    title: `Matt's Portfolio`,
+    description: `Matt's portfolio website`,
+    siteUrl: 'https://trusting-bose-add650.netlify.app/',
   },
   plugins: [
     `gatsby-plugin-styled-components`,

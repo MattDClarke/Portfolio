@@ -5,6 +5,7 @@ import { ThemeContext } from './ThemeContext';
 const DarkToggle = () => {
   const { colorMode, setColorMode } = React.useContext(ThemeContext);
 
+  // dnt show on initial page load until React app rehydrates
   if (!colorMode) {
     return null;
   }
@@ -14,7 +15,7 @@ const DarkToggle = () => {
       <input
         type="checkbox"
         checked={colorMode === 'dark'}
-        onChange={ev => {
+        onChange={(ev) => {
           setColorMode(ev.target.checked ? 'dark' : 'light');
         }}
       />{' '}

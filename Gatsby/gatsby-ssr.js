@@ -9,11 +9,14 @@ import {
 
 import App from './src/components/App';
 
+// will be stringified, placeholders replaced, and immediately invoked when page loaded - will block HTML rendering
 function setColorsByTheme() {
+  // inital placeholder values - will be replaced
   const colors = '🌈';
   const colorModeKey = '🔑';
   const colorModeCssProp = '⚡️';
 
+  // check users light / dark mode preferences
   const mql = window.matchMedia('(prefers-color-scheme: dark)');
   const prefersDarkFromMQ = mql.matches;
   const persistedPreference = localStorage.getItem(colorModeKey);
@@ -28,27 +31,38 @@ function setColorsByTheme() {
     colorMode = prefersDarkFromMQ ? 'dark' : 'light';
   }
 
-  let root = document.documentElement;
+  // access global styles
+  const root = document.documentElement;
 
   root.style.setProperty(colorModeCssProp, colorMode);
 
   Object.entries(colors).forEach(([name, colorByTheme]) => {
+    // create the needed CSS variables
     const cssVarName = `--color-${name}`;
 
     root.style.setProperty(cssVarName, colorByTheme[colorMode]);
   });
 }
 
+// added before body - used to check user preferences and update CSS variables before content rendered
+// Replace that rainbow string with our COLORS object.
+// We need to stringify it as JSON so that it isn't
+// inserted as [object Object].
+// script tag injected as string - will be exe as fn later
 const MagicScriptTag = () => {
   const boundFn = String(setColorsByTheme)
     .replace("'🌈'", JSON.stringify(COLORS))
     .replace('🔑', COLOR_MODE_KEY)
     .replace('⚡️', INITIAL_COLOR_MODE_CSS_PROP);
 
+  // Wrap it in an IIFE - prevent polluting global namespace - dnt need to store it globally.
   let calledFunction = `(${boundFn})()`;
-
+  // minify script - outside module build system of Gatsby so Webpack does not know about it
+  // minor performance improvement
   calledFunction = Terser.minify(calledFunction).code;
 
+  // Inject it
+  // not dangerous because injection at compile time - user can't add to it
   // eslint-disable-next-line react/no-danger
   return <script dangerouslySetInnerHTML={{ __html: calledFunction }} />;
 };
@@ -69,9 +83,8 @@ const FallbackStyles = () => {
   */
 
   const cssVariableString = Object.entries(COLORS).reduce(
-    (acc, [name, colorByTheme]) => {
-      return `${acc}\n--color-${name}: ${colorByTheme.light};`;
-    },
+    (acc, [name, colorByTheme]) =>
+      `${acc}\n--color-${name}: ${colorByTheme.light};`,
     ''
   );
 
@@ -80,11 +93,12 @@ const FallbackStyles = () => {
   return <style>{wrappedInSelector}</style>;
 };
 
+// lifecycle method that Gatsby exposes - runs function when generating HTML during build process
 export const onRenderBody = ({ setPreBodyComponents, setHeadComponents }) => {
+  // set defaults incase JS disabled - else would cause no colors (CSS variables not set)
   setHeadComponents(<FallbackStyles />);
+  // injects React component above everything else, within <body>
   setPreBodyComponents(<MagicScriptTag />);
 };
 
-export const wrapPageElement = ({ element }) => {
-  return <App>{element}</App>;
-};
+export const wrapPageElement = ({ element }) => <App>{element}</App>;

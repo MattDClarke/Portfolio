@@ -4,13 +4,15 @@ import {
   COLORS,
   COLOR_MODE_KEY,
   INITIAL_COLOR_MODE_CSS_PROP,
-} from '../constants';
+} from '../utils/constants';
 
 export const ThemeContext = React.createContext();
 
 export const ThemeProvider = ({ children }) => {
+  // initialize state to undefined because at first render at compile time - no access to window object
   const [colorMode, rawSetColorMode] = React.useState(undefined);
 
+  // will run after React app rehydrates
   React.useEffect(() => {
     const root = window.document.documentElement;
 
