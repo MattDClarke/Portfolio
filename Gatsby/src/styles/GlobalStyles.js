@@ -3,6 +3,9 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
   :root {
     --color-transition: 'none';
+    --color-success: hsl(160deg, 100%, 40%);
+    --color-error: hsl(340deg, 95%, 50%);
+    --color-alert: hsl(37deg, 100%, 50%);
   }
 
   *, *:before, *:after {

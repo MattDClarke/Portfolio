@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FiSun } from 'react-icons/fi';
+import { BsSunFill } from 'react-icons/bs';
 import { MdOutlineDarkMode } from 'react-icons/md';
 
 import { ThemeContext } from './ThemeContext';
@@ -36,13 +36,16 @@ const DarkModeToggleStyles = styled.label`
     left: 4px;
     bottom: 4px;
     border-radius: 50%;
-    background-color: var(--color-primary);
+    background-color: var(--color-text);
     transition: 0.4s;
     transform: rotate(1deg);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 
     svg {
       height: 26px;
       width: 26px;
+      padding: 0.2rem;
+      fill: var(--color-background);
     }
   }
 
@@ -82,7 +85,7 @@ const DarkToggle = () => {
       />
       <span className="slider">
         <span className="slider-thumb">
-          {colorMode === 'dark' ? <FiSun /> : <MdOutlineDarkMode />}
+          {colorMode === 'dark' ? <BsSunFill /> : <MdOutlineDarkMode />}
         </span>
       </span>
     </DarkModeToggleStyles>

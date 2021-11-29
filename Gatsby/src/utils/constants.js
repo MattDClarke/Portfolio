@@ -4,29 +4,58 @@ export const COLORS = {
     dark: 'hsl(0deg, 0%, 100%)', // near-black
   },
   background: {
-    light: 'hsl(0deg, 0%, 100%)', // white
-    dark: 'hsl(250deg, 70%, 7%)', // navy navy blue
+    light: '#f8f5f2', // off-white
+    dark: 'hsl(250deg, 70%, 7%)', // navy blue
   },
   primary: {
-    light: 'hsl(340deg, 100%, 40%)', // Pinkish-red
-    dark: 'hsl(50deg, 100%, 50%)', // Yellow
+    light: '#078080', // pastele green
+    dark: '#7f5af0', // purple
   },
   secondary: {
-    light: 'hsl(250deg, 100%, 50%)', // Purplish-blue
-    dark: 'hsl(190deg, 100%, 40%)', // Cyan
+    light: '#f45d48', //  orange
+    dark: '#b8c1ec', // darkish grey
   },
-  // Grays, scaling from least-noticeable to most-noticeable
-  gray300: {
-    light: 'hsl(0deg, 0%, 70%)',
-    dark: 'hsl(0deg, 0%, 30%)',
+  tertiary: {
+    light: '#f8f5f2', // off white
+    dark: '#2cb67d', // green
   },
-  gray500: {
-    light: 'hsl(0deg, 0%, 50%)',
-    dark: 'hsl(0deg, 0%, 50%)',
+
+  // Greys, scaling from least-noticeable to most-noticeable
+  'gray-100': {
+    light: 'hsl(225deg, 25%, 95%)',
+    dark: 'hsl(210deg, 15%, 20%)',
   },
-  gray700: {
-    light: 'hsl(0deg, 0%, 30%)',
-    dark: 'hsl(0deg, 0%, 70%)',
+  'gray-200': {
+    light: 'hsl(225deg, 16%, 90%)',
+    dark: 'hsl(210deg, 15%, 25%)',
+  },
+  'gray-300': {
+    light: 'hsl(225deg, 8%, 80%)',
+    dark: 'hsl(210deg, 10%, 40%)',
+  },
+  'gray-400': {
+    light: ' hsl(225deg, 8%, 70%)',
+    dark: 'hsl(210deg, 9%, 45%)',
+  },
+  'gray-500': {
+    light: 'hsl(225deg, 7%, 60%)',
+    dark: 'hsl(210deg, 8%, 50%)',
+  },
+  'gray-600': {
+    light: 'hsl(225deg, 15%, 50%)',
+    dark: 'hsl(210deg, 12%, 55%)',
+  },
+  'gray-700': {
+    light: 'hsl(225deg, 12%, 40%)',
+    dark: 'hsl(210deg, 14%, 66%)',
+  },
+  'gray-900': {
+    light: 'hsl(225deg, 25%, 20%)',
+    dark: 'hsl(210deg, 25%, 88%)',
+  },
+  'gray-1000': {
+    light: 'hsl(225deg, 12%, 40%)',
+    dark: 'hsl(225deg, 15%, 15%)',
   },
 };
 
