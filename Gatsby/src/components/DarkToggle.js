@@ -51,7 +51,8 @@ const DarkModeToggleStyles = styled.label`
   }
 
   input:focus + .slider {
-    transform: scale(1.1);
+    outline: 2px auto var(--color-primary);
+    outline-offset: 1px;
   }
 
   input:checked + .slider .slider-thumb {
