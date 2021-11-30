@@ -19,6 +19,10 @@ export const COLORS = {
     light: '#f8f5f2', // off white
     dark: '#2cb67d', // green
   },
+  selection: {
+    light: '#ff9800', // orange
+    dark: '#e65100', // dark orange
+  },
 
   // Greys, scaling from least-noticeable to most-noticeable
   'gray-100': {

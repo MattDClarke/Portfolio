@@ -16,6 +16,9 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
   }
 
+  ::selection {
+    background: var(--color-selection);
+  }
   // 3. Allow percentage-based heights
   html, body {
     height: 100%;
