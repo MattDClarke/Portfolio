@@ -4,24 +4,24 @@ export const COLORS = {
     dark: 'hsl(0deg, 0%, 100%)', // near-black
   },
   background: {
-    light: '#f8f5f2', // off-white
+    light: 'hsl(30deg, 30%, 96%)', // off-white
     dark: 'hsl(250deg, 70%, 7%)', // navy blue
   },
   primary: {
-    light: '#078080', // pastele green
-    dark: '#7f5af0', // purple
+    light: 'hsl(180deg, 90%, 26%)', // pastele green
+    dark: 'hsl(255deg, 83%, 65%)', // purple
   },
   secondary: {
-    light: '#f45d48', //  orange
-    dark: '#b8c1ec', // darkish grey
+    light: 'hsl(7deg, 89%, 62%)', //  orange
+    dark: 'hsl(230deg, 58%, 82%)', // darkish grey
   },
   tertiary: {
-    light: '#f8f5f2', // off white
-    dark: '#2cb67d', // green
+    light: 'hsl(30deg, 8%, 85%)', // off white
+    dark: 'hsl(155deg, 61%, 44%)', // green
   },
   selection: {
-    light: '#ff9800', // orange
-    dark: '#e65100', // dark orange
+    light: 'hsl(36deg, 100%, 50%)', // orange
+    dark: 'hsl(21deg, 100%, 45%)', // dark orange
   },
 
   // Greys, scaling from least-noticeable to most-noticeable
@@ -53,13 +53,13 @@ export const COLORS = {
     light: 'hsl(225deg, 12%, 40%)',
     dark: 'hsl(210deg, 14%, 66%)',
   },
+  'gray-800': {
+    light: 'hsl(225deg, 19%, 30%)',
+    dark: 'hsl(210deg, 19%, 77%)',
+  },
   'gray-900': {
     light: 'hsl(225deg, 25%, 20%)',
     dark: 'hsl(210deg, 25%, 88%)',
-  },
-  'gray-1000': {
-    light: 'hsl(225deg, 12%, 40%)',
-    dark: 'hsl(225deg, 15%, 15%)',
   },
 };
 
