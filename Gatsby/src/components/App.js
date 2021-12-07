@@ -4,7 +4,7 @@ import { ThemeProvider } from './ThemeContext';
 import GlobalStyles from '../styles/GlobalStyles';
 import Typography from '../styles/Typography';
 
-function App({ children }) {
+const App = function ({ children }) {
   return (
     <ThemeProvider>
       <GlobalStyles />
@@ -12,6 +12,6 @@ function App({ children }) {
       {children}
     </ThemeProvider>
   );
-}
+};
 
 export default App;

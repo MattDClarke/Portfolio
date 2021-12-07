@@ -13,7 +13,7 @@ const Header = ({ siteTitle }) => (
 const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
-  padding: 16px;
+  /* padding: 16px; */
 `;
 
 export default Header;

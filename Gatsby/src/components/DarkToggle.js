@@ -8,8 +8,8 @@ import { ThemeContext } from './ThemeContext';
 const DarkModeToggleStyles = styled.label`
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 48px;
+  height: 27.2px;
   input {
     opacity: 0;
     width: 0;
@@ -22,7 +22,7 @@ const DarkModeToggleStyles = styled.label`
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 34px;
+    border-radius: 27.2px;
     background-color: var(--color-secondary);
     transition: 0.4s;
   }
@@ -31,10 +31,10 @@ const DarkModeToggleStyles = styled.label`
   .slider-thumb {
     position: absolute;
     content: '';
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
+    height: 20.8px;
+    width: 20.8px;
+    left: 3.2px;
+    bottom: 3.2px;
     border-radius: 50%;
     background-color: var(--color-text);
     transition: 0.4s;
@@ -42,8 +42,8 @@ const DarkModeToggleStyles = styled.label`
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 
     svg {
-      height: 26px;
-      width: 26px;
+      height: 20.8px;
+      width: 20.8px;
       padding: 0.2rem;
       fill: var(--color-background);
     }
@@ -53,17 +53,18 @@ const DarkModeToggleStyles = styled.label`
     background-color: var(--color-secondary);
   }
 
-  input:focus + .slider {
+  // only add outline if keyboard navigation
+  input:focus-visible + .slider {
     outline: 2px auto var(--color-primary);
     outline-offset: 1px;
   }
 
   input:checked + .slider .slider-thumb {
-    transform: translateX(26px) rotate(90deg);
+    transform: translateX(20.8px) rotate(90deg);
   }
 `;
 
-const DarkToggle = () => {
+const DarkToggle = function () {
   const { colorMode, setColorMode } = React.useContext(ThemeContext);
 
   function handleToggle(e) {

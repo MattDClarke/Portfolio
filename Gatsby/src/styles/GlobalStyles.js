@@ -45,6 +45,12 @@ const GlobalStyles = createGlobalStyle`
     isolation: isolate;
   }
 
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
 `;
 
 export default GlobalStyles;

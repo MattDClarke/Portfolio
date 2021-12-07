@@ -49,7 +49,7 @@ function setColorsByTheme() {
 // We need to stringify it as JSON so that it isn't
 // inserted as [object Object].
 // script tag injected as string - will be exe as fn later
-const MagicScriptTag = () => {
+const MagicScriptTag = function () {
   const boundFn = String(setColorsByTheme)
     .replace("'🌈'", JSON.stringify(COLORS))
     .replace('🔑', COLOR_MODE_KEY)
@@ -75,7 +75,7 @@ const MagicScriptTag = () => {
  * document, which sets default values for all of our colors.
  * Only light mode will be available for users with JS disabled.
  */
-const FallbackStyles = () => {
+const FallbackStyles = function () {
   // Create a string holding each CSS variable:
   /*
     `--color-text: black;
