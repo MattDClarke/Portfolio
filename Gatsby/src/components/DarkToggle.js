@@ -10,6 +10,12 @@ const DarkModeToggleStyles = styled.label`
   display: inline-block;
   width: 48px;
   height: 27.2px;
+
+  @media (max-width: 768px) {
+    margin-left: 2rem;
+    margin-top: 0.5rem;
+  }
+
   input {
     opacity: 0;
     width: 0;

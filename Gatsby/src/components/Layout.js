@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import styled from 'styled-components';
 import Header from './Header';
-import Nav from './Nav';
+import Nav from './Nav/Nav';
 
 const ContentStyles = styled.div`
   margin: 0 auto;
