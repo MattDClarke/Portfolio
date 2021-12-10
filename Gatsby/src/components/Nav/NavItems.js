@@ -1,12 +1,11 @@
-import { Link } from 'gatsby';
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import useToggleState from '../../utils/useToggle';
+import useWindowSize from '../../utils/useWindowSize';
 import NavList from './NavList';
 
 const NavItemStyles = styled.nav`
   display: flex;
-
   button {
     display: none;
     width: 2rem;
@@ -56,6 +55,22 @@ const NavItemStyles = styled.nav`
 
 const NavItems = function () {
   const [open, setOpen] = useToggleState(false);
+  const windowSize = useWindowSize();
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflowY = 'hidden';
+    } else {
+      document.body.style.overflowY = 'unset';
+    }
+  }, [open]);
+
+  useEffect(() => {
+    if (windowSize.width > 768) {
+      setOpen(false);
+    }
+  }, [windowSize.width, setOpen]);
+
   return (
     <NavItemStyles open={open}>
       <button type="button" onClick={setOpen}>

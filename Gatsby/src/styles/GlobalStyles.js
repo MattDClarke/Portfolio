@@ -27,6 +27,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     background: var(--color-background);
     transition: var(--color-transition);
+    /* overflow-y: hidden; */
   }
 
   // improve media defaults

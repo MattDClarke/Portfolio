@@ -8,7 +8,7 @@ import {
 
 export const ThemeContext = React.createContext();
 
-export const ThemeProvider = ({ children }) => {
+export const ThemeProvider = function ({ children }) {
   // initialize state to undefined because at first render at compile time - no access to window object
   const [colorMode, rawSetColorMode] = React.useState(undefined);
 
