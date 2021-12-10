@@ -6,6 +6,9 @@ const GlobalStyles = createGlobalStyle`
     --color-success: hsl(160deg, 100%, 40%);
     --color-error: hsl(340deg, 95%, 50%);
     --color-alert: hsl(37deg, 100%, 50%);
+    --main-opacity: 1;
+    --main-blur: 0;
+    --main-pointer-events: 'auto';
   }
 
   *, *:before, *:after {
@@ -27,7 +30,13 @@ const GlobalStyles = createGlobalStyle`
   body {
     background: var(--color-background);
     transition: var(--color-transition);
-    /* overflow-y: hidden; */
+  }
+
+  main {
+    opacity: var(--main-opacity);
+    filter: blur(var(--main-blur));
+    pointer-events: var(--main-pointer-events);
+    transition: opacity 0.3s ease-in-out;
   }
 
   // improve media defaults

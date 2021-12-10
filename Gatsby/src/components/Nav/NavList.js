@@ -5,6 +5,7 @@ import DarkToggle from '../DarkToggle';
 
 const NavListStyles = styled.nav`
   display: flex;
+  z-index: 1;
   @media (max-width: 768px) {
     flex-flow: column nowrap;
     background-color: var(--color-gray-200);
@@ -48,15 +49,19 @@ const NavListStyles = styled.nav`
   }
 `;
 
-const NavList = function ({ open }) {
+const NavList = function ({ open, setOpen }) {
   return (
     <NavListStyles className="nav-items" open={open}>
       <ul open={open}>
         <li>
-          <Link to="/#projects">My Projects</Link>
+          <Link to="/#projects" onClick={() => setOpen(false)}>
+            My Projects
+          </Link>
         </li>
         <li>
-          <Link to="/#contact">Contact</Link>
+          <Link to="/#contact" onClick={() => setOpen(false)}>
+            Contact
+          </Link>
         </li>
       </ul>
       <DarkToggle />

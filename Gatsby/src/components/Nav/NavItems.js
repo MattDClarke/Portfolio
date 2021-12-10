@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import useOnClickOutside from '../../utils/useOnClickOutside';
 import useToggleState from '../../utils/useToggle';
 import useWindowSize from '../../utils/useWindowSize';
 import NavList from './NavList';
@@ -11,7 +12,7 @@ const NavItemStyles = styled.nav`
     width: 2rem;
     height: 2rem;
     padding: 0;
-    z-index: 1;
+    z-index: 2;
     background: none;
     border: none;
     overflow: hidden;
@@ -56,12 +57,26 @@ const NavItemStyles = styled.nav`
 const NavItems = function () {
   const [open, setOpen] = useToggleState(false);
   const windowSize = useWindowSize();
+  // Create a ref that we add to the element for which we want to detect outside clicks
+  const ref = useRef();
+  // prevent useOnClickOutside Effect running on every render
+  const handler = useCallback(() => setOpen(false), [setOpen]);
+  // Call hook passing in the ref and a function to call on outside click
+  useOnClickOutside(ref, handler);
 
   useEffect(() => {
+    const root = window.document.documentElement;
+
     if (open) {
       document.body.style.overflowY = 'hidden';
+      root.style.setProperty('--main-opacity', '0.5');
+      root.style.setProperty('--main-blur', '5px');
+      root.style.setProperty('--main-pointer-events', 'none');
     } else {
       document.body.style.overflowY = 'unset';
+      root.style.setProperty('--main-opacity', '1');
+      root.style.setProperty('--main-blur', '0');
+      root.style.setProperty('--main-pointer-events', 'auto');
     }
   }, [open]);
 
@@ -71,14 +86,24 @@ const NavItems = function () {
     }
   }, [windowSize.width, setOpen]);
 
+  useEffect(() => {
+    const close = (e) => {
+      if (e.key === 'Escape') {
+        setOpen(false);
+      }
+    };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, [setOpen]);
+
   return (
-    <NavItemStyles open={open}>
+    <NavItemStyles open={open} ref={ref}>
       <button type="button" onClick={setOpen}>
         <div />
         <div />
         <div />
       </button>
-      <NavList open={open} />
+      <NavList open={open} setOpen={setOpen} />
     </NavItemStyles>
   );
 };
