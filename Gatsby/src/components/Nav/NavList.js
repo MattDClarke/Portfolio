@@ -47,24 +47,52 @@ const NavListStyles = styled.nav`
   a {
     text-decoration: none;
   }
+
+  @media (max-width: 768px) {
+    // slide in animations
+    .item-projects {
+      transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
+      transition: transform opacity;
+      transition-duration: ${({ open }) => (open ? '500ms' : '0ms')};
+      transition-delay: ${({ open }) => (open ? '350ms' : '300ms')};
+      transition-timing-function: ${({ open }) =>
+        open ? 'ease-out' : 'ease-in'};
+    }
+    .item-contact {
+      transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
+      transition: transform opacity;
+      transition-duration: ${({ open }) => (open ? '500ms' : '0ms')};
+      transition-delay: ${({ open }) => (open ? '450ms' : '300ms')};
+      transition-timing-function: ${({ open }) =>
+        open ? 'ease-out' : 'ease-in'};
+    }
+    label {
+      transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(600%)')};
+      transition: transform opacity;
+      transition-duration: ${({ open }) => (open ? '500ms' : '0ms')};
+      transition-delay: ${({ open }) => (open ? '550ms' : '300ms')};
+      transition-timing-function: ${({ open }) =>
+        open ? 'ease-out' : 'ease-in'};
+    }
+  }
 `;
 
 const NavList = function ({ open, setOpen }) {
   return (
     <NavListStyles className="nav-items" open={open}>
       <ul open={open}>
-        <li>
+        <li className="item-projects">
           <Link to="/#projects" onClick={() => setOpen(false)}>
             My Projects
           </Link>
         </li>
-        <li>
+        <li className="item-contact">
           <Link to="/#contact" onClick={() => setOpen(false)}>
             Contact
           </Link>
         </li>
       </ul>
-      <DarkToggle />
+      <DarkToggle className="item-darkToggle" />
     </NavListStyles>
   );
 };

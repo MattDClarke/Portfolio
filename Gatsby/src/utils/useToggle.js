@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 export default function useToggleState(initialVal = false) {
   const [state, setState] = useState(initialVal);
-  // const [isToggle, setIsToggle] = useState(true);
   const toggle = (isToggle) => {
     // Can set toggle to false if false passed in
     if (isToggle === false) {
