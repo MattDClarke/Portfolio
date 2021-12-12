@@ -41,6 +41,22 @@ const Typography = createGlobalStyle`
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
   }
+
+  h1 {
+    font-size: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    padding-top: 3rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+    padding-top: 3rem;
+  }
+
   p, li {
     max-width: 75ch;
   }
@@ -52,6 +68,11 @@ const Typography = createGlobalStyle`
   // remove built-in form typography styles
   input, button, textarea, select {
     font: inherit;
+  }
+  button {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: var(--color-background);
   }
 `;
 

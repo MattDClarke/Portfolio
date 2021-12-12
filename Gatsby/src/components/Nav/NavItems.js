@@ -16,6 +16,8 @@ const NavItemStyles = styled.nav`
     background: none;
     border: none;
     overflow: hidden;
+    border: none;
+    box-shadow: none;
 
     :hover {
       cursor: pointer;

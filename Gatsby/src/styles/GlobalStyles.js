@@ -50,6 +50,21 @@ const GlobalStyles = createGlobalStyle`
     overflow-wrap: break-word;
   }
 
+  button {
+    background: var(--color-primary);
+    border: 2px solid hsl(0deg, 0%, 10%);
+    --cast: 2px;
+    box-shadow: 0 var(--cast) 0 0 hsl(0deg, 0%, 10%);
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      --cast: 4px;
+      opacity: 0.9;
+    }
+  }
+
   // Create a root (app level) stacking context instead of global - guarantees modals, tooltips, ... always on top
   #___gatsby {
     isolation: isolate;

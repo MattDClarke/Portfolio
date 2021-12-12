@@ -1,7 +1,7 @@
 export const COLORS = {
   text: {
-    light: 'hsl(0deg, 0%, 10%)', // white
-    dark: 'hsl(0deg, 0%, 100%)', // near-black
+    light: 'hsl(0deg, 0%, 10%)', // near black
+    dark: 'hsl(0deg, 0%, 100%)', // white
   },
   background: {
     light: 'hsl(30deg, 30%, 96%)', // off-white
@@ -9,7 +9,7 @@ export const COLORS = {
   },
   primary: {
     light: 'hsl(180deg, 90%, 26%)', // pastele green
-    dark: 'hsl(255deg, 83%, 65%)', // purple
+    dark: 'hsl(255deg, 83%, 76%)', // purple
   },
   secondary: {
     light: 'hsl(7deg, 89%, 62%)', //  orange
