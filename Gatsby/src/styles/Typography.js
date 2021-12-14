@@ -44,21 +44,22 @@ const Typography = createGlobalStyle`
 
   h1 {
     font-size: 3rem;
-    padding-bottom: 3rem;
+    padding-bottom: 4rem;
   }
 
   h2 {
     font-size: 2.5rem;
-    padding-top: 3rem;
+    padding: 2rem 0;
   }
 
   h3 {
     font-size: 2rem;
-    padding-top: 3rem;
+    padding-bottom: 1rem;
   }
 
   p, li {
     max-width: 75ch;
+    padding-bottom: 2rem;
   }
 
   a {

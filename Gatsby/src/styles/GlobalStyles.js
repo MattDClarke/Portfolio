@@ -39,6 +39,10 @@ const GlobalStyles = createGlobalStyle`
     transition: opacity 0.3s ease-in-out;
   }
 
+  section {
+    padding: 3rem 0;
+  }
+
   // improve media defaults
   img, picture, video, canvas, svg {
     display: block;
@@ -53,15 +57,17 @@ const GlobalStyles = createGlobalStyle`
   button {
     background: var(--color-primary);
     border: 2px solid hsl(0deg, 0%, 10%);
-    --cast: 2px;
+    --cast: 3px;
     box-shadow: 0 var(--cast) 0 0 hsl(0deg, 0%, 10%);
     padding: 0.6rem 1rem;
     border-radius: 6px;
     cursor: pointer;
+    will-change: transform opacity;
     transition: all 0.3s;
     &:hover {
-      --cast: 4px;
+      --cast: 2px;
       opacity: 0.9;
+      transform: translateY(1px);
     }
   }
 
@@ -73,6 +79,32 @@ const GlobalStyles = createGlobalStyle`
   @media (prefers-reduced-motion: no-preference) {
     html {
       scroll-behavior: smooth;
+    }
+  }
+
+  .text-link {
+    --rotate: -1deg;
+    --scaleX: 1;
+    position: relative;
+
+    &:before {
+      height: 2px;
+      position: absolute;
+      border-radius: 0 100% 100% 0;
+      background: var(--color-secondary);
+      content: "";
+      width: 100%;
+      bottom: 1px;
+      transition: transform 0.3s ease-in-out;
+      transform: skew(-20deg) rotate(var(--rotate)) scaleX(var(--scaleX));
+    }
+    &:hover {
+      --rotate: 0deg;
+      --scaleX: 1.05;
+    }
+    &:focus {
+      --rotate: 0deg;
+      --scaleX: 1.05;
     }
   }
 

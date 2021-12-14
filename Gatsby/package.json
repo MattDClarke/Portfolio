@@ -4,6 +4,7 @@
   "description": "Portfolio website",
   "version": "0.1.0",
   "dependencies": {
+    "@formspree/react": "^2.2.4",
     "babel-plugin-styled-components": "^2.0.2",
     "dotenv": "^10.0.0",
     "gatsby": "^4.3.0",
