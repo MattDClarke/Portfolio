@@ -25,7 +25,6 @@ const Layout = function ({ children }) {
   return (
     <ContentStyles>
       <Nav />
-      {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
       <main>{children}</main>
     </ContentStyles>
   );

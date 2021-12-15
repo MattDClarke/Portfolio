@@ -3,9 +3,6 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
   :root {
     --color-transition: 'none';
-    --color-success: hsl(160deg, 100%, 40%);
-    --color-error: hsl(340deg, 95%, 50%);
-    --color-alert: hsl(37deg, 100%, 50%);
     --main-opacity: 1;
     --main-blur: 0;
     --main-pointer-events: 'auto';
@@ -55,11 +52,13 @@ const GlobalStyles = createGlobalStyle`
   }
 
   button {
+    display: block;
     background: var(--color-primary);
     border: 2px solid hsl(0deg, 0%, 10%);
     --cast: 3px;
     box-shadow: 0 var(--cast) 0 0 hsl(0deg, 0%, 10%);
     padding: 0.6rem 1rem;
+    margin: 1rem 0;
     border-radius: 6px;
     cursor: pointer;
     will-change: transform opacity;
@@ -70,6 +69,29 @@ const GlobalStyles = createGlobalStyle`
       transform: translateY(1px);
     }
   }
+
+  input, textarea {
+    display: block;
+    position: relative;
+    width: 500px;
+    border: 2px solid var(--color-text);
+    border-radius: 6px;
+    padding: 0.5rem 0.5rem;
+
+    & + small{
+      display: block;
+      height: 2rem;
+      font-weight: 700;
+    }
+  }
+
+  textarea {
+    max-width: 500px;
+    min-width: 500px;
+    min-height: 200px;
+    max-height: 500px;
+  }
+
 
   // Create a root (app level) stacking context instead of global - guarantees modals, tooltips, ... always on top
   #___gatsby {

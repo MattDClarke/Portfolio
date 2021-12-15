@@ -75,6 +75,10 @@ const Typography = createGlobalStyle`
     font-weight: bold;
     color: var(--color-background);
   }
+
+  small {
+    color: var(--color-error);
+  }
 `;
 
 export default Typography;

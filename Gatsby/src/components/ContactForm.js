@@ -1,22 +1,67 @@
-import React from 'react';
-import { useForm, ValidationError } from '@formspree/react';
+import React, { useState, useEffect } from 'react';
+import { useForm } from '@formspree/react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { contactValidationSchema } from '../utils/contactValidationSchema';
+import MsgSnackbar from './MsgSnackbar';
 
 const ContactForm = function () {
-  const [state, handleSubmit] = useForm('contactForm');
-  if (state.succeeded) {
-    return <p>Thanks for joining!</p>;
-  }
+  const [formspreeState, formspreeHandleSubmit] = useForm('contact');
+  const [msgSuccess, setMsgSuccess] = useState(null);
+  const msgResetDelay = 5;
+
+  useEffect(() => {
+    if (formspreeState.succeeded) {
+      setMsgSuccess(true);
+    }
+    if (formspreeState.errors.length !== 0) {
+      setMsgSuccess(false);
+    }
+
+    // reset msg state after certain time
+    const timer = setTimeout(() => {
+      setMsgSuccess(null);
+    }, msgResetDelay * 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+    // formspreeState is an array (an object) - new one on each render
+  }, [formspreeState.errors, formspreeState.succeeded]);
+
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="email">Email Address</label>
-      <input id="email" type="email" name="email" />
-      <ValidationError prefix="Email" field="email" errors={state.errors} />
-      <textarea id="message" name="message" />
-      <ValidationError prefix="Message" field="message" errors={state.errors} />
-      <button type="submit" disabled={state.submitting}>
-        Submit
-      </button>
-    </form>
+    <>
+      <MsgSnackbar msgSuccess={msgSuccess} />
+
+      <Formik
+        initialValues={{
+          name: '',
+          email: '',
+        }}
+        validationSchema={contactValidationSchema}
+        onSubmit={(values) => {
+          formspreeHandleSubmit(values);
+        }}
+      >
+        <Form>
+          <Field name="name" />
+          <small>
+            <ErrorMessage name="name" component="div" />
+          </small>
+
+          <Field name="email" type="email" />
+          <small>
+            <ErrorMessage name="email" component="div" />
+          </small>
+          <Field name="message" type="text" as="textarea" />
+          <small>
+            <ErrorMessage name="message" component="div" />
+          </small>
+          <button type="submit" disabled={formspreeState.submitting}>
+            {formspreeState.submitting ? 'Sending...' : 'Send'}
+          </button>
+        </Form>
+      </Formik>
+    </>
   );
 };
 export default ContactForm;

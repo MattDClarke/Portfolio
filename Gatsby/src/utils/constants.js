@@ -23,6 +23,18 @@ export const COLORS = {
     light: 'hsl(36deg, 100%, 50%)', // orange
     dark: 'hsl(21deg, 100%, 45%)', // dark orange
   },
+  success: {
+    light: 'hsl(160deg, 100%, 40%)',
+    dark: 'hsl(160deg, 67%, 52%)',
+  },
+  error: {
+    light: 'hsl(340deg, 95%, 50%)',
+    dark: 'hsl(340deg, 95%, 60%)',
+  },
+  alert: {
+    light: ' hsl(37deg, 100%, 50%)',
+    dark: 'hsl(37deg, 100%, 60%)',
+  },
 
   // Greys, scaling from least-noticeable to most-noticeable
   'gray-100': {
