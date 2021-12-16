@@ -23,8 +23,13 @@ export default {
       },
     },
     {
-      name: 'imageHomePage',
-      title: 'Image for home page',
+      name: 'imageHomePageLight',
+      title: 'Light mode image for home page',
+      type: 'image',
+    },
+    {
+      name: 'imageHomePageDark',
+      title: 'Dark mode image for home page',
       type: 'image',
     },
   ],

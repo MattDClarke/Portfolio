@@ -51,6 +51,13 @@ const GlobalStyles = createGlobalStyle`
     overflow-wrap: break-word;
   }
 
+  form {
+    label {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+  }
+
   button {
     display: block;
     background: var(--color-primary);
@@ -68,6 +75,9 @@ const GlobalStyles = createGlobalStyle`
       opacity: 0.9;
       transform: translateY(1px);
     }
+    &[disabled] {
+      opacity: 0.5;
+    }
   }
 
   input, textarea {
@@ -78,9 +88,9 @@ const GlobalStyles = createGlobalStyle`
     border-radius: 6px;
     padding: 0.5rem 0.5rem;
 
-    & + small{
+    & + small {
       display: block;
-      height: 2rem;
+      height: 1.5rem;
       font-weight: 700;
     }
   }

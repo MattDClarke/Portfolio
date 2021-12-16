@@ -36,6 +36,7 @@ const ContactForm = function () {
         initialValues={{
           name: '',
           email: '',
+          message: '',
         }}
         validationSchema={contactValidationSchema}
         onSubmit={(values) => {
@@ -43,18 +44,21 @@ const ContactForm = function () {
         }}
       >
         <Form>
-          <Field name="name" />
+          <label htmlFor="name">Name</label>
+          <Field id="name" name="name" type="text" />
           <small>
-            <ErrorMessage name="name" component="div" />
+            <ErrorMessage name="name" />
           </small>
 
+          <label htmlFor="email">Email</label>
           <Field name="email" type="email" />
           <small>
-            <ErrorMessage name="email" component="div" />
+            <ErrorMessage name="email" />
           </small>
+          <label htmlFor="message">Message</label>
           <Field name="message" type="text" as="textarea" />
           <small>
-            <ErrorMessage name="message" component="div" />
+            <ErrorMessage name="message" />
           </small>
           <button type="submit" disabled={formspreeState.submitting}>
             {formspreeState.submitting ? 'Sending...' : 'Send'}

@@ -90,7 +90,6 @@ const MsgSnackbar = function ({ msgSuccess }) {
   const [scrollTop, setScrollTop] = useState(0);
 
   useEffect(() => {
-    console.log('in effect');
     let onScroll;
     // only add event listener if msg
     if (msgSuccess !== null) {
@@ -107,13 +106,14 @@ const MsgSnackbar = function ({ msgSuccess }) {
   return (
     <MsgSnackbarStyles
       msgSuccess={msgSuccess}
+      // stick to bottom of viewport
       style={{ top: `${scrollTop + window.innerHeight - 200}px` }}
     >
       <div className="icon">
         {msgSuccess === true ? <GrStatusGood /> : <BiErrorCircle />}
       </div>
       <div className="msg">
-        {msgSuccess === true ? 'Message sent.' : 'Message send failed'}
+        {msgSuccess === true ? 'Message sent' : 'Message send failed'}
       </div>
     </MsgSnackbarStyles>
   );

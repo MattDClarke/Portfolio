@@ -9,6 +9,7 @@ const NavStyles = styled.nav`
   justify-content: space-between;
   font-weight: 700;
   .logo a {
+    text-decoration: none;
     color: var(--color-primary);
     font-size: 1.25rem;
   }

@@ -4,7 +4,7 @@ export const contactValidationSchema = yup.object({
   name: yup
     .string('Enter your name')
     .strict()
-    .min(3, 'Name must be at least 2 characters long')
+    .min(2, 'Name must be at least 2 characters long')
     .max(50, 'The maximum number of characters is 50')
     .required('Name is required'),
   email: yup
