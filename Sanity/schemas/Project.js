@@ -23,6 +23,12 @@ export default {
       },
     },
     {
+      name: 'summary',
+      title: 'Project Summary',
+      type: 'string',
+      description: 'Summary of what the project is about',
+    },
+    {
       name: 'imageHomePageLight',
       title: 'Light mode image for home page',
       type: 'image',
@@ -31,6 +37,25 @@ export default {
       name: 'imageHomePageDark',
       title: 'Dark mode image for home page',
       type: 'image',
+    },
+    {
+      name: 'tech',
+      title: 'Technologies used',
+      type: 'array',
+      description: 'Technologies used in the project (e.g. React)',
+      of: [{ type: 'string' }],
+    },
+    {
+      name: 'gitHubLink',
+      title: 'GitHub link',
+      type: 'string',
+      description: 'GitHub repository URL',
+    },
+    {
+      name: 'websiteLink',
+      title: 'Website link',
+      type: 'string',
+      description: 'Website URL',
     },
   ],
 };
