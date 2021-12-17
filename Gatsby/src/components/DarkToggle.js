@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { BsSunFill } from 'react-icons/bs';
 import { MdOutlineDarkMode } from 'react-icons/md';
-
 import { ThemeContext } from './ThemeContext';
 
 const DarkModeToggleStyles = styled.label`
@@ -71,7 +70,7 @@ const DarkModeToggleStyles = styled.label`
 `;
 
 const DarkToggle = function () {
-  const { colorMode, setColorMode } = React.useContext(ThemeContext);
+  const { colorMode, setColorMode } = useContext(ThemeContext);
 
   function handleToggle(e) {
     setColorMode(e.target.checked ? 'dark' : 'light');

@@ -139,7 +139,6 @@ const GlobalStyles = createGlobalStyle`
       --scaleX: 1.05;
     }
   }
-
 `;
 
 export default GlobalStyles;

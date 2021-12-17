@@ -1,15 +1,19 @@
+import React, { useContext } from 'react';
 import { Link } from 'gatsby';
-import React from 'react';
 import { FaChevronRight, FaExternalLinkAlt } from 'react-icons/fa';
 import { FiGithub } from 'react-icons/fi';
 import styled from 'styled-components';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { ThemeContext } from '../ThemeContext';
 
 const ProjectStyles = styled.div`
   display: grid;
-  margin-top: 3rem;
+  margin-top: 4rem;
   grid-template-areas:
     'paragraph img'
     'details img';
+
+  column-gap: 5rem;
 
   .info {
     grid-area: paragraph;
@@ -20,9 +24,12 @@ const ProjectStyles = styled.div`
       padding-bottom: 0;
     }
   }
-  img {
+
+  .img-container {
     grid-area: img;
+    align-self: center;
   }
+
   .details {
     grid-area: details;
     align-self: end;
@@ -72,20 +79,35 @@ const ProjectStyles = styled.div`
 `;
 
 const Project = function ({ project }) {
-  console.log('project data: ', project);
-  const { slug, name, summary, tech, websiteLink, gitHubLink } = project;
+  const { colorMode } = useContext(ThemeContext);
+  const {
+    slug,
+    name,
+    summary,
+    tech,
+    websiteLink,
+    gitHubLink,
+    imageHomePageDark,
+    imageHomePageLight,
+  } = project;
   return (
     <ProjectStyles>
       <div className="info">
         <h3>{name}</h3>
         <p>{summary}</p>
       </div>
-      <img
-        src=""
-        alt={`Collage of ${name} screenshots`}
-        width="665"
-        height="330"
-      />
+
+      <div className="img-container">
+        <GatsbyImage
+          image={
+            colorMode === 'dark'
+              ? imageHomePageDark.asset.gatsbyImageData
+              : imageHomePageLight.asset.gatsbyImageData
+          }
+          alt={`Collage of ${name} screenshots`}
+        />
+      </div>
+
       <div className="details">
         <div className="tech-labels">
           {tech.map((item) => (
@@ -95,7 +117,7 @@ const Project = function ({ project }) {
           ))}
         </div>
         <div className="project-links">
-          <Link to={`/${slug}`} className="text-link">
+          <Link to={`/${slug.current}`} className="text-link">
             View project details
           </Link>
           <span>

@@ -177,7 +177,7 @@ export default IndexPage;
 
 export const query = graphql`
   query ProjectQuery {
-    projects: allSanityProject {
+    projects: allSanityProject(sort: { fields: [name], order: DESC }) {
       nodes {
         id
         name
@@ -187,6 +187,16 @@ export const query = graphql`
         gitHubLink
         slug {
           current
+        }
+        imageHomePageDark {
+          asset {
+            gatsbyImageData
+          }
+        }
+        imageHomePageLight {
+          asset {
+            gatsbyImageData(placeholder: BLURRED)
+          }
         }
       }
     }
