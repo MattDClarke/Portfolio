@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useForm } from '@formspree/react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { contactValidationSchema } from '../utils/contactValidationSchema';
+import { contactValidationSchema } from '../../utils/contactValidationSchema';
 import MsgSnackbar from './MsgSnackbar';
 
 const ContactForm = function () {
