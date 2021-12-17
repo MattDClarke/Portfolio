@@ -1,37 +1,25 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
-
 import styled from 'styled-components';
+import Footer from './Footer';
 import Nav from './Nav/Nav';
 
 const ContentStyles = styled.div`
-  margin: 0 auto;
-  max-width: 1200px;
-  padding: 65px 1.0875rem 1.45rem;
+    display: grid,
+    grid-template-rows: auto 1fr auto;
+    min-height: '100vh';
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 65px 1.0875rem 1.45rem;
 `;
 
 const Layout = function ({ children }) {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
   return (
     <ContentStyles>
       <Nav />
       <main>{children}</main>
+      <Footer />
     </ContentStyles>
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default Layout;
