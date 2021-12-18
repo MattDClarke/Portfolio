@@ -26,7 +26,7 @@ const NavListStyles = styled.nav`
       flex-flow: column nowrap;
       background-color: var(--color-gray-200);
       transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
-      padding-top: 3.5rem;
+      padding-top: 2rem;
       transition: transform 0.3s ease-in-out;
     }
   }
@@ -38,14 +38,12 @@ const NavListStyles = styled.nav`
 
     @media (max-width: 768px) {
       padding: 0.5rem 1rem;
+      font-size: 1rem;
     }
 
     a {
       color: var(--color-text);
     }
-  }
-  a {
-    text-decoration: none;
   }
 
   @media (max-width: 768px) {

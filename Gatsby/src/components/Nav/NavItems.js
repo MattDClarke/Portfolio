@@ -9,18 +9,21 @@ const NavItemStyles = styled.nav`
   display: flex;
   button {
     display: none;
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
     padding: 0;
+    margin: 0;
     z-index: 2;
     background: none;
     border: none;
     overflow: hidden;
     border: none;
+    border-radius: 0;
     box-shadow: none;
 
     :hover {
       cursor: pointer;
+      transform: none;
     }
 
     @media (max-width: 768px) {
@@ -31,9 +34,9 @@ const NavItemStyles = styled.nav`
 
     div {
       width: 100%;
-      height: 0.25rem;
+      height: 0.17rem;
       background-color: var(--color-text);
-      border-radius: 10px;
+      border-radius: 5px;
       transition: all 0.3s linear;
       &:nth-child(1) {
         transform: ${({ open }) =>

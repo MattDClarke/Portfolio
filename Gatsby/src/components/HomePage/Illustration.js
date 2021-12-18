@@ -13,11 +13,13 @@ const IllustrationStyles = styled.div`
   flex-direction: column;
   margin: 0;
   padding: 3rem;
-  justify-content: center;
   align-items: center;
 
+  @media (max-width: 990px) {
+    display: none;
+  }
+
   .grid-container {
-    position: relative;
     padding: 10px;
     width: 270px;
     height: 220px;

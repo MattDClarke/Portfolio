@@ -7,10 +7,30 @@ import Project from '../components/HomePage/Project';
 
 const IndexPageStyles = styled.div`
   .container {
+    position: relative;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     padding: 4rem 0;
+
+    @media (max-width: 900px) {
+      padding: 2.8rem 0;
+    }
+
+    @media (max-width: 600px) {
+      padding: 2rem 0;
+    }
+  }
+
+  h1 {
+    @media (max-width: 600px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  .info {
+    @media (max-width: 700px) {
+      flex: 1;
+    }
   }
 
   .link {
@@ -25,14 +45,21 @@ const IndexPageStyles = styled.div`
     padding: 0.6rem 1rem;
     border-radius: 6px;
     cursor: pointer;
-    will-change: transform;
     transition: all 0.3s;
-    text-decoration: none;
 
-    &:hover {
-      --cast: 2px;
+    &:hover,
+    &:focus {
+      --cast: 2.5px;
       opacity: 0.9;
-      transform: translateY(1px);
+    }
+
+    @media (max-width: 900px) {
+      padding: 0.42rem 0.7rem;
+      border-radius: 4.2px;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 1rem;
     }
   }
 
@@ -77,6 +104,10 @@ const IndexPageStyles = styled.div`
 
   .paragraph-skills {
     font-size: 1.3rem;
+
+    @media (max-width: 600px) {
+      font-size: 1rem;
+    }
   }
 
   .skills-list {
@@ -102,11 +133,23 @@ const IndexPageStyles = styled.div`
         margin-right: 0.5rem;
       }
     }
+
+    @media (max-width: 600px) {
+      font-size: 0.9rem;
+    }
   }
 
   #projects {
     padding: 0;
     margin-top: 5rem;
+
+    @media (max-width: 900px) {
+      margin-top: 3.5rem;
+    }
+
+    @media (max-width: 600px) {
+      margin-top: 2.45rem;
+    }
   }
 
   #contact {
@@ -116,7 +159,6 @@ const IndexPageStyles = styled.div`
 
 const IndexPage = function ({ data }) {
   const projects = data.projects.nodes;
-  console.log(projects);
 
   return (
     <IndexPageStyles>

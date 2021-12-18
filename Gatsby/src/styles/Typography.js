@@ -45,21 +45,59 @@ const Typography = createGlobalStyle`
   h1 {
     font-size: 3rem;
     padding-bottom: 4rem;
+
+    @media (max-width: 900px) {
+      font-size: 2.7rem;
+    padding-bottom: 2.8rem;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 1.5rem;
+      padding-bottom: 2rem;
+    }
   }
 
   h2 {
     font-size: 2.5rem;
     padding: 2rem 0;
+
+    @media (max-width: 900px) {
+      font-size: 2.25rem;
+      padding: 1.4rem 0;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 2rem;
+      padding: 1rem 0;
+    }
   }
 
   h3 {
     font-size: 2rem;
     padding-bottom: 1rem;
+
+    @media (max-width: 900px) {
+      font-size: 1.8rem;
+      padding: 0.7rem 0;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 1.6rem;
+      padding: 0.5rem 0;
+    }
   }
 
   p, li {
     max-width: 75ch;
     padding-bottom: 2rem;
+
+    @media (max-width: 900px) {
+      padding-bottom: 1.4rem;
+    }
+
+    @media (max-width: 600px) {
+      padding-bottom: 1rem;
+    }
   }
 
   a {
@@ -74,11 +112,16 @@ const Typography = createGlobalStyle`
     font-size: 1.15rem;
     font-weight: bold;
     color: var(--color-background);
+
+    @media (max-width: 900px) {
+      font-size: 1rem;
+    }
   }
 
   small {
     color: var(--color-error);
   }
+
 `;
 
 export default Typography;

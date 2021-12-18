@@ -12,6 +12,10 @@ const NavStyles = styled.nav`
     text-decoration: none;
     color: var(--color-primary);
     font-size: 1.25rem;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
   }
 `;
 

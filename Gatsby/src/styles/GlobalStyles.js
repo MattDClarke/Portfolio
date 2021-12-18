@@ -38,6 +38,14 @@ const GlobalStyles = createGlobalStyle`
 
   section {
     padding: 3rem 0;
+
+    @media (max-width: 900px) {
+      padding: 2.1rem 0;
+    }
+
+    @media (max-width: 600px) {
+      padding: 1.5rem 0;
+    }
   }
 
   // improve media defaults
@@ -51,11 +59,24 @@ const GlobalStyles = createGlobalStyle`
     overflow-wrap: break-word;
   }
 
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    width: 100%;
+  }
+
   form {
     label {
       font-size: 1.25rem;
       font-weight: 700;
+
+      @media (max-width: 900px) {
+        font-size: 1rem;
+      }
     }
+
   }
 
   button {
@@ -68,12 +89,11 @@ const GlobalStyles = createGlobalStyle`
     margin: 1rem 0;
     border-radius: 6px;
     cursor: pointer;
-    will-change: transform opacity;
     transition: all 0.3s;
-    &:hover {
-      --cast: 2px;
+    &:hover,
+    &:focus {
+      --cast: 2.5px;
       opacity: 0.9;
-      transform: translateY(1px);
     }
     &[disabled] {
       opacity: 0.5;
@@ -83,7 +103,8 @@ const GlobalStyles = createGlobalStyle`
   input, textarea {
     display: block;
     position: relative;
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     border: 2px solid var(--color-text);
     border-radius: 6px;
     padding: 0.5rem 0.5rem;
@@ -96,22 +117,21 @@ const GlobalStyles = createGlobalStyle`
   }
 
   textarea {
-    max-width: 500px;
+
     min-width: 500px;
     min-height: 200px;
     max-height: 500px;
+
+    @media (max-width: 535px) {
+      min-width: 100%;
+      max-width: 80vw;
+    }
   }
 
 
   // Create a root (app level) stacking context instead of global - guarantees modals, tooltips, ... always on top
   #___gatsby {
     isolation: isolate;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    html {
-      scroll-behavior: smooth;
-    }
   }
 
   .text-link {
@@ -139,6 +159,17 @@ const GlobalStyles = createGlobalStyle`
       --scaleX: 1.05;
     }
   }
+
+  .color-primary {
+    color: var(--color-primary);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
 `;
 
 export default GlobalStyles;

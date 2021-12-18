@@ -7,7 +7,7 @@ const FooterStyles = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 5rem;
+  padding-top: 10rem;
 
   .links {
     display: flex;
@@ -16,7 +16,6 @@ const FooterStyles = styled.footer`
 
   a {
     color: var(--color-text);
-    text-decoration: none;
     transition: color 0.3s ease-in-out;
     &:hover {
       color: var(--color-primary);
@@ -53,19 +52,6 @@ const Footer = function () {
         </a>
 
         <a
-          href="https://codepen.io/MattDC1"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="link"
-        >
-          <div className="icon">
-            <FaCodepen />
-          </div>
-
-          <div>CodePen</div>
-        </a>
-
-        <a
           href="https://dev.to/mattdclarke"
           target="_blank"
           rel="noopener noreferrer"
@@ -76,6 +62,19 @@ const Footer = function () {
           </div>
 
           <div>DEV</div>
+        </a>
+
+        <a
+          href="https://codepen.io/MattDC1"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link"
+        >
+          <div className="icon">
+            <FaCodepen />
+          </div>
+
+          <div>CodePen</div>
         </a>
       </div>
 

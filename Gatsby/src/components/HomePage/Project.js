@@ -15,6 +15,24 @@ const ProjectStyles = styled.div`
 
   column-gap: 5rem;
 
+  @media (max-width: 1000px) {
+    column-gap: 2rem;
+  }
+
+  @media (max-width: 900px) {
+    grid-template-areas:
+      'paragraph'
+      'img'
+      'details';
+    row-gap: 1rem;
+    margin-top: 2.8rem;
+    max-width: 500px;
+  }
+
+  @media (max-width: 600px) {
+    margin-top: 2rem;
+  }
+
   .info {
     grid-area: paragraph;
     align-self: end;
@@ -22,12 +40,19 @@ const ProjectStyles = styled.div`
     p {
       font-size: 1.25rem;
       padding-bottom: 0;
+
+      @media (max-width: 900px) {
+        font-size: 1rem;
+      }
     }
   }
 
   .img-container {
     grid-area: img;
     align-self: center;
+
+    .gatsby-image-wrapper {
+    }
   }
 
   .details {
@@ -49,6 +74,14 @@ const ProjectStyles = styled.div`
         margin: 0.25rem;
         border-radius: 6px;
         transition: all 0.3s;
+
+        @media (max-width: 900px) {
+          --cast: 1px;
+          font-size: 0.9rem;
+          padding: 0.175rem 0.35rem;
+          margin: 0.175rem;
+          border-radius: 4.2px;
+        }
       }
     }
 
@@ -63,10 +96,13 @@ const ProjectStyles = styled.div`
         align-self: center;
       }
 
+      @media (max-width: 900px) {
+        font-size: 1rem;
+      }
+
       a {
         color: var(--color-text);
         transition: color 0.3s ease-in-out;
-        text-decoration: none;
         &:hover {
           color: var(--color-primary);
         }
@@ -75,6 +111,11 @@ const ProjectStyles = styled.div`
         }
       }
     }
+  }
+
+  .animate {
+    transform: translateY(-50%);
+    transition: all 0.5s;
   }
 `;
 
@@ -90,6 +131,9 @@ const Project = function ({ project }) {
     imageHomePageDark,
     imageHomePageLight,
   } = project;
+
+  // animation state of teach tech item
+
   return (
     <ProjectStyles>
       <div className="info">
@@ -126,7 +170,12 @@ const Project = function ({ project }) {
 
           {gitHubLink ? (
             <span style={{ paddingRight: '13px' }}>
-              <a href={gitHubLink} target="_blank" rel="noopener noreferrer">
+              <a
+                href={gitHubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub Link"
+              >
                 <FiGithub />
               </a>
             </span>
@@ -135,7 +184,12 @@ const Project = function ({ project }) {
           )}
 
           <span>
-            <a href={websiteLink} target="_blank" rel="noopener noreferrer">
+            <a
+              href={websiteLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="External Link to website"
+            >
               <FaExternalLinkAlt />
             </a>
           </span>
