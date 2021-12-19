@@ -9,13 +9,15 @@ const ContentStyles = styled.div`
   min-height: 100vh;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 65px 1.0875rem 1.45rem;
+  padding: 65px 2rem 1.45rem;
 
   @media (max-width: 768px) {
     padding-top: 55px;
   }
   @media (max-width: 600px) {
     padding-top: 45px;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 `;
 

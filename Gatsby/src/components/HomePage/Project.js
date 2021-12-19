@@ -10,7 +10,7 @@ const ProjectStyles = styled.div`
   display: grid;
   margin-top: 4rem;
   grid-template-areas:
-    'paragraph img'
+    'info img'
     'details img';
 
   column-gap: 5rem;
@@ -21,7 +21,7 @@ const ProjectStyles = styled.div`
 
   @media (max-width: 900px) {
     grid-template-areas:
-      'paragraph'
+      'info'
       'img'
       'details';
     row-gap: 1rem;
@@ -34,14 +34,16 @@ const ProjectStyles = styled.div`
   }
 
   .info {
-    grid-area: paragraph;
+    grid-area: info;
     align-self: end;
+    max-width: 450px;
 
     p {
       font-size: 1.25rem;
       padding-bottom: 0;
 
       @media (max-width: 900px) {
+        max-width: 500px;
         font-size: 1rem;
       }
     }
@@ -58,6 +60,7 @@ const ProjectStyles = styled.div`
   .details {
     grid-area: details;
     align-self: end;
+    max-width: 450px;
 
     .tech-labels {
       padding: 1rem 0;
@@ -110,6 +113,9 @@ const ProjectStyles = styled.div`
           color: var(--color-primary);
         }
       }
+    }
+    @media (max-width: 900px) {
+      max-width: 500px;
     }
   }
 
@@ -174,8 +180,9 @@ const Project = function ({ project }) {
                 href={gitHubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="GitHub Link"
+                aria-label="GitHub"
               >
+                <title id="gitHub">GitHub</title>
                 <FiGithub />
               </a>
             </span>
@@ -188,7 +195,7 @@ const Project = function ({ project }) {
               href={websiteLink}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="External Link to website"
+              aria-label="Live website"
             >
               <FaExternalLinkAlt />
             </a>

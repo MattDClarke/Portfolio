@@ -24,6 +24,11 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
   }
 
+  // Create a root (app level) stacking context instead of global - guarantees modals, tooltips, ... always on top
+  #___gatsby {
+    isolation: isolate;
+  }
+
   body {
     background: var(--color-background);
     transition: var(--color-transition);
@@ -117,7 +122,6 @@ const GlobalStyles = createGlobalStyle`
   }
 
   textarea {
-
     min-width: 500px;
     min-height: 200px;
     max-height: 500px;
@@ -128,10 +132,30 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
+  [aria-label] {
+    position: relative;
+  }
 
-  // Create a root (app level) stacking context instead of global - guarantees modals, tooltips, ... always on top
-  #___gatsby {
-    isolation: isolate;
+  [aria-label]:after {
+    content: attr(aria-label);
+    opacity: 0;
+    position: absolute;
+    top: 25px;
+    right: -15px;
+    z-index: 1;
+    pointer-events: none;
+    padding: 8px 10px;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    color: var(--color-background);
+    background-color: var(--color-secondary);
+    border-radius: 3px;
+    box-shadow: 1px 2px 6px var(--color-gray-400);
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  [aria-label]:hover:after, [aria-label]:focus:after {
+    opacity: 1;
   }
 
   .text-link {

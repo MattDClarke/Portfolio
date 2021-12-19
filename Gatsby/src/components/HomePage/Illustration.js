@@ -21,6 +21,7 @@ const IllustrationStyles = styled.div`
 
   .grid-container {
     padding: 10px;
+    position: relative;
     width: 270px;
     height: 220px;
     border-radius: 10px;

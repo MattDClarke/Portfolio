@@ -24,6 +24,8 @@ const IndexPageStyles = styled.div`
   h1 {
     @media (max-width: 600px) {
       font-size: 1.5rem;
+      padding-top: 2rem;
+      padding-bottom: 3rem;
     }
   }
 
