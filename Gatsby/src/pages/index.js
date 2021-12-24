@@ -234,7 +234,7 @@ export const query = graphql`
         }
         imageHomePageDark {
           asset {
-            gatsbyImageData
+            gatsbyImageData(placeholder: BLURRED)
           }
         }
         imageHomePageLight {

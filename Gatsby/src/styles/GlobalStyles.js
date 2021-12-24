@@ -32,6 +32,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     background: var(--color-background);
     transition: var(--color-transition);
+    overflow-x: hidden;
   }
 
   main {

@@ -1,4 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useAnimation, motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import { Link } from 'gatsby';
 import { FaChevronRight, FaExternalLinkAlt } from 'react-icons/fa';
 import { FiGithub } from 'react-icons/fi';
@@ -6,7 +8,7 @@ import styled from 'styled-components';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { ThemeContext } from '../ThemeContext';
 
-const ProjectStyles = styled.div`
+const ProjectStyles = styled(motion.div)`
   display: grid;
   margin-top: 4rem;
   grid-template-areas:
@@ -125,8 +127,12 @@ const ProjectStyles = styled.div`
   }
 `;
 
+const projectVariants = {
+  visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
+  hidden: { opacity: 0, scale: 0 },
+};
+
 const Project = function ({ project }) {
-  const { colorMode } = useContext(ThemeContext);
   const {
     slug,
     name,
@@ -138,10 +144,23 @@ const Project = function ({ project }) {
     imageHomePageLight,
   } = project;
 
-  // animation state of teach tech item
+  const { colorMode } = useContext(ThemeContext);
+  const controls = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+  }, [controls, inView]);
 
   return (
-    <ProjectStyles>
+    <ProjectStyles
+      variants={projectVariants}
+      initial="hidden"
+      animate={controls}
+      ref={ref}
+    >
       <div className="info">
         <h3>{name}</h3>
         <p>{summary}</p>
