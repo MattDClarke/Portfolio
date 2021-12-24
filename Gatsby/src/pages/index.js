@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import ContactForm from '../components/HomePage/ContactForm';
 import Illustration from '../components/HomePage/Illustration';
 import Project from '../components/HomePage/Project';
@@ -159,30 +161,120 @@ const IndexPageStyles = styled.div`
   }
 `;
 
+const headerContainer = {
+  visible: {
+    transition: {
+      staggerChildren: 0.35,
+    },
+  },
+};
+
+const headerItem = {
+  hidden: {
+    opacity: 0,
+    y: 200,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [0.6, 0.01, -0.05, 0.95],
+      duration: 1.5,
+    },
+  },
+};
+
+const linkButtonVariants = {
+  hidden: { opacity: 0, x: -400 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 1.6 },
+  },
+};
+
+const scrollIndicatorVariants = {
+  hidden: { opacity: 0, rotate: -5 },
+  visible: {
+    opacity: 1,
+    rotate: 0,
+    transition: { duration: 1.8 },
+  },
+};
+
+const skillsVariants = {
+  hidden: { opacity: 0, x: -100 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 1, delay: 0.9 },
+  },
+};
+
+const contactVariants = {
+  hidden: { opacity: 0, x: 20 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 1 },
+  },
+};
+
 const IndexPage = function ({ data }) {
   const projects = data.projects.nodes;
+
+  const controlsContact = useAnimation();
+  const [refContact, inViewContact] = useInView();
+
+  useEffect(() => {
+    if (inViewContact) {
+      controlsContact.start('visible');
+    }
+  }, [controlsContact, inViewContact]);
 
   return (
     <IndexPageStyles>
       <div className="container">
         <div className="info">
-          <h1>
-            <span>Hi, I’m Matt.</span> <br />
-            <span>
+          <motion.h1
+            variants={headerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.span variants={headerItem}>Hi, I’m Matt.</motion.span>{' '}
+            <br />
+            <motion.span variants={headerItem}>
               I’m a Full Stack <br />
-            </span>
-            <span className="color-primary">JavaScript Developer.</span>
-          </h1>
-          <Link to="/#projects" className="link">
-            My Projects
-          </Link>
+            </motion.span>
+            <motion.span variants={headerItem} className="color-primary">
+              JavaScript Developer.
+            </motion.span>
+          </motion.h1>
+          <motion.div
+            variants={linkButtonVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <Link to="/#projects" className="link">
+              My Projects
+            </Link>
+          </motion.div>
         </div>
         <Illustration />
       </div>
 
-      <div className="scroll-indicator" />
+      <motion.div
+        className="scroll-indicator"
+        variants={scrollIndicatorVariants}
+        initial="hidden"
+        animate="visible"
+      />
 
-      <section>
+      <motion.section
+        variants={skillsVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <h2>My skills</h2>
         <p className="paragraph-skills">
           I am a full stack developer with a primary focus on React. Here are
@@ -200,7 +292,7 @@ const IndexPage = function ({ data }) {
           <li>Express</li>
           <li>MongoDB</li>
         </ul>
-      </section>
+      </motion.section>
 
       <section>
         <h2 id="projects">My Projects</h2>
@@ -211,7 +303,14 @@ const IndexPage = function ({ data }) {
 
       <section>
         <h2 id="contact">Contact</h2>
-        <ContactForm />
+        <motion.div
+          variants={contactVariants}
+          initial="hidden"
+          animate={controlsContact}
+          ref={refContact}
+        >
+          <ContactForm />
+        </motion.div>
       </section>
     </IndexPageStyles>
   );

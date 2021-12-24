@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+import { Link } from 'gatsby';
 import React from 'react';
 import { FaCodepen, FaDev } from 'react-icons/fa';
 import { FiGithub } from 'react-icons/fi';
@@ -78,17 +80,12 @@ const Footer = function () {
         </a>
       </div>
 
-      <span>
-        ©{' '}
-        <a
-          href="https://www.mattdclarke.tech"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Matthew Clarke
-        </a>{' '}
-        2021
-      </span>
+      <motion.span
+        whileHover={{ scale: 1.1 }}
+        transition={{ type: 'spring', stiffness: 500 }}
+      >
+        © <Link to="/">Matthew Clarke</Link> 2021
+      </motion.span>
     </FooterStyles>
   );
 };

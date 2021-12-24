@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import DarkToggle from '../DarkToggle';
 
-const NavListStyles = styled.nav`
+const NavListStyles = styled.div`
   display: flex;
   z-index: 1;
   @media (max-width: 768px) {
@@ -77,7 +77,7 @@ const NavListStyles = styled.nav`
 
 const NavList = function ({ open, setOpen }) {
   return (
-    <NavListStyles className="nav-items" open={open}>
+    <NavListStyles open={open}>
       <ul open={open}>
         <li className="item-projects">
           <Link to="/#projects" onClick={() => setOpen(false)}>

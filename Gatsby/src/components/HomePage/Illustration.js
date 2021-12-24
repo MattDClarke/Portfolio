@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-const IllustrationStyles = styled.div`
+const IllustrationStyles = styled(motion.div)`
   --circle-diameter: 50px;
   --triangle-width: 20.15px;
   --middle-circle-width: 14.5px;
@@ -288,6 +289,16 @@ const IllustrationStyles = styled.div`
     color: var(--color-primary);
   }
 `;
+
+const illustrationVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+
+    transition: { duration: 1.6 },
+  },
+};
+
 const Illustration = function () {
   function createTopItems() {
     const divs = [];
@@ -330,7 +341,14 @@ const Illustration = function () {
   }
 
   return (
-    <IllustrationStyles>
+    <IllustrationStyles
+      variants={illustrationVariants}
+      initial="hidden"
+      animate="visible"
+      drag
+      dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+      dragElastic={1}
+    >
       <div className="grid-container">
         <div className="top-container">{createTopItems()}</div>
         <div className="bottom-container">{createBottomItems()}</div>

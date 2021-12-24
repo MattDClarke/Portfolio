@@ -128,8 +128,36 @@ const ProjectStyles = styled(motion.div)`
 `;
 
 const projectVariants = {
-  visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
-  hidden: { opacity: 0, scale: 0 },
+  hidden: { opacity: 0, x: 100 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 1 },
+  },
+};
+
+const techLabelsVariants = {
+  hidden: { opacity: 0, x: 100 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.25, staggerChildren: 0.35 },
+  },
+};
+
+const techLabelVariants = {
+  hidden: {
+    opacity: 0,
+    y: -20,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: [0.6, 0.01, -0.05, 0.95],
+      duration: 0.3,
+    },
+  },
 };
 
 const Project = function ({ project }) {
@@ -178,13 +206,22 @@ const Project = function ({ project }) {
       </div>
 
       <div className="details">
-        <div className="tech-labels">
+        <motion.div
+          className="tech-labels"
+          variants={techLabelsVariants}
+          initial="hidden"
+          animate={controls}
+        >
           {tech.map((item) => (
-            <div className="tech-label" key={item}>
+            <motion.div
+              className="tech-label"
+              key={item}
+              variants={techLabelVariants}
+            >
               {item}
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
         <div className="project-links">
           <Link to={`/${slug.current}`} className="text-link">
             View project details

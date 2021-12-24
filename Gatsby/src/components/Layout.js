@@ -10,6 +10,7 @@ const ContentStyles = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 65px 2rem 1.45rem;
+  overflow-x: hidden;
 
   @media (max-width: 768px) {
     padding-top: 55px;
