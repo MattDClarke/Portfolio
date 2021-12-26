@@ -6,6 +6,7 @@ import { useInView } from 'react-intersection-observer';
 import ContactForm from '../components/HomePage/ContactForm';
 import Illustration from '../components/HomePage/Illustration';
 import Project from '../components/HomePage/Project';
+import AnimatedLetters from '../components/HomePage/AnimatedLetters';
 
 const IndexPageStyles = styled.div`
   .container {
@@ -247,7 +248,7 @@ const IndexPage = function ({ data }) {
               I’m a Full Stack <br />
             </motion.span>
             <motion.span variants={headerItem} className="color-primary">
-              JavaScript Developer.
+              JavaScript <AnimatedLetters title="Developer" />
             </motion.span>
           </motion.h1>
           <motion.div
