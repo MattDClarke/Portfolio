@@ -1,5 +1,6 @@
-import { Link } from 'gatsby';
 import React from 'react';
+import { Link } from 'gatsby';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import DarkToggle from '../DarkToggle';
 
@@ -43,6 +44,29 @@ const NavListStyles = styled.div`
 
     a {
       color: var(--color-text);
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        width: 0px;
+        height: 2px;
+        border-radius: 0 100% 100% 0;
+        transition: all 0.6s ease-in-out;
+        opacity: 0;
+        right: 0;
+        background-color: var(--color-text);
+      }
+
+      &:hover::after {
+        width: 100%;
+        opacity: 1;
+      }
+      &:focus::after {
+        width: 100%;
+        opacity: 1;
+      }
     }
   }
 
