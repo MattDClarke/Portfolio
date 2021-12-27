@@ -54,8 +54,11 @@ const ProjectStyles = styled(motion.div)`
   .img-container {
     grid-area: img;
     align-self: center;
+    transition: all 0.3s ease-in-out;
 
-    .gatsby-image-wrapper {
+    &:hover,
+    &:focus {
+      box-shadow: 3px 3px 3px var(--color-gray-400);
     }
   }
 
@@ -194,7 +197,12 @@ const Project = function ({ project }) {
         <p>{summary}</p>
       </div>
 
-      <div className="img-container">
+      <a
+        href={websiteLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="img-container"
+      >
         <GatsbyImage
           image={
             colorMode === 'dark'
@@ -203,7 +211,7 @@ const Project = function ({ project }) {
           }
           alt={`Collage of ${name} screenshots`}
         />
-      </div>
+      </a>
 
       <div className="details">
         <motion.div

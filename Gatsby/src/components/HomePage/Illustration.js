@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
 
-const IllustrationStyles = styled(motion.div)`
+const IllustrationStyles = styled.div`
   --circle-diameter: 50px;
   --triangle-width: 20.15px;
   --middle-circle-width: 14.5px;
@@ -15,6 +15,7 @@ const IllustrationStyles = styled(motion.div)`
   margin: 0;
   padding: 3rem;
   align-items: center;
+  perspective: 2000;
 
   @media (max-width: 990px) {
     display: none;
@@ -31,7 +32,6 @@ const IllustrationStyles = styled(motion.div)`
 
   .grid-container:hover .top-container .top-item {
     opacity: 0;
-
     &:nth-child(odd) {
       will-change: transform;
       animation: rotationCross calc(var(--animation-time) * 2)
@@ -58,6 +58,8 @@ const IllustrationStyles = styled(motion.div)`
     grid-template-columns: repeat(7, var(--circle-diameter));
     grid-template-rows: repeat(5, var(--circle-diameter));
     z-index: 2;
+    cursor: grab;
+
     transform: translate(
       calc(var(--circle-diameter) / 2 * -1),
       calc(var(--circle-diameter) / 2 * -1)
@@ -300,6 +302,11 @@ const illustrationVariants = {
 };
 
 const Illustration = function () {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const rotateX = useTransform(y, [-100, 100], [30, -30]);
+  const rotateY = useTransform(x, [-100, 100], [-30, 30]);
+
   function createTopItems() {
     const divs = [];
     for (let i = 0; i < 35; i += 1) {
@@ -341,18 +348,18 @@ const Illustration = function () {
   }
 
   return (
-    <IllustrationStyles
-      variants={illustrationVariants}
-      initial="hidden"
-      animate="visible"
-      drag
-      dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
-      dragElastic={1}
-    >
-      <div className="grid-container">
+    <IllustrationStyles>
+      <motion.div
+        className="grid-container"
+        style={{ x, y, rotateX, rotateY, z: 100 }}
+        drag
+        dragElastic={0.16}
+        dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+        whileTap={{ cursor: 'grabbing' }}
+      >
         <div className="top-container">{createTopItems()}</div>
         <div className="bottom-container">{createBottomItems()}</div>
-      </div>
+      </motion.div>
     </IllustrationStyles>
   );
 };

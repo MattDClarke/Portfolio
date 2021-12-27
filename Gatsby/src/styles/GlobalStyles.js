@@ -24,6 +24,20 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
   }
 
+  body::-webkit-scrollbar {
+    width: auto;
+}
+
+
+  body::-webkit-scrollbar-track {
+    background: var(--color-gray-300);
+  }
+
+  body::-webkit-scrollbar-thumb {
+      background-color: var(--color-secondary);
+      border-radius: 6px;
+  }
+
   // Create a root (app level) stacking context instead of global - guarantees modals, tooltips, ... always on top
   #___gatsby {
     isolation: isolate;

@@ -58,6 +58,12 @@ const IndexPageStyles = styled.div`
       opacity: 0.9;
     }
 
+    // only add outline if keyboard navigation
+    &:focus-visible {
+      outline: 2px auto var(--color-primary);
+      outline-offset: 1px;
+    }
+
     @media (max-width: 900px) {
       padding: 0.42rem 0.7rem;
       border-radius: 4.2px;
