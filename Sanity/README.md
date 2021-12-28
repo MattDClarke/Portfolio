@@ -1,4 +1,8 @@
-# Backend CMS
+# Sanity - Backend CMS
+
+## About
+
+- Used to store images and blog posts.
 
 ## Development
 

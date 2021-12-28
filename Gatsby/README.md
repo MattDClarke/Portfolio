@@ -1,15 +1,16 @@
-# Gatsby Dark Mode (minimal example)
+# Gatsby - Front-end
 
-This codebase creates an "MVP" version of rehydration-safe, flicker-free Dark Mode. It's described in more detail on my blog:
+## About
 
-https://joshwcomeau.com/gatsby/dark-mode/
+- Static website generator
 
-You can also play with it live (though, fair warning, it's not a terribly exciting application): https://trusting-bose-add650.netlify.app
+## Tech used
 
----
+- Styled components
+- Form Validation: Formik and Yup
+- Animation: Framer Motion, React Intersection Oobserver
+- Backend CMS: Sanity. For storing images and blog posts
 
-Notable files:
+## Development
 
-• gatsby-ssr.js
-• src/components/ThemeContext.js
-• src/constants.js
+- run `npm start` to run `npm run develop`
