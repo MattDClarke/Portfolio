@@ -68,6 +68,14 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
+  h1 {
+    @media (max-width: 600px) {
+      font-size: 1.5rem;
+      padding-top: 2rem;
+      padding-bottom: 3rem;
+    }
+  }
+
   // improve media defaults
   img, picture, video, canvas, svg {
     display: block;
@@ -201,6 +209,42 @@ const GlobalStyles = createGlobalStyle`
 
   .color-primary {
     color: var(--color-primary);
+  }
+
+  .internal-link {
+    display: inline-block;
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: var(--color-background);
+    background: var(--color-primary);
+    border: 2px solid hsl(0deg, 0%, 10%);
+    --cast: 3px;
+    box-shadow: 0 var(--cast) 0 0 hsl(0deg, 0%, 10%);
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover,
+    &:focus {
+      --cast: 2.5px;
+      opacity: 0.9;
+    }
+
+    // only add outline if keyboard navigation
+    &:focus-visible {
+      outline: 2px auto var(--color-primary);
+      outline-offset: 1px;
+    }
+
+    @media (max-width: 900px) {
+      padding: 0.42rem 0.7rem;
+      border-radius: 4.2px;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 1rem;
+    }
   }
 
   @media (prefers-reduced-motion: no-preference) {

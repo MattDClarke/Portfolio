@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 
-const IllustrationStyles = styled.div`
+const IllustrationStyles = styled(motion.div)`
   --circle-diameter: 50px;
   --triangle-width: 20.15px;
   --middle-circle-width: 14.5px;
@@ -58,8 +58,6 @@ const IllustrationStyles = styled.div`
     grid-template-columns: repeat(7, var(--circle-diameter));
     grid-template-rows: repeat(5, var(--circle-diameter));
     z-index: 2;
-    cursor: grab;
-
     transform: translate(
       calc(var(--circle-diameter) / 2 * -1),
       calc(var(--circle-diameter) / 2 * -1)
@@ -296,7 +294,6 @@ const illustrationVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-
     transition: { duration: 1.6 },
   },
 };
@@ -304,8 +301,9 @@ const illustrationVariants = {
 const Illustration = function () {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const rotateX = useTransform(y, [-100, 100], [30, -30]);
-  const rotateY = useTransform(x, [-100, 100], [-30, 30]);
+  // when y changes from dragging - transform the value of rotateX -> rotating along x axis
+  const rotateX = useTransform(y, [-100, 100], [83, -83]);
+  const rotateY = useTransform(x, [-100, 100], [-83, 83]);
 
   function createTopItems() {
     const divs = [];
@@ -348,14 +346,21 @@ const Illustration = function () {
   }
 
   return (
-    <IllustrationStyles>
+    <IllustrationStyles
+      variants={illustrationVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <motion.div
         className="grid-container"
-        style={{ x, y, rotateX, rotateY, z: 100 }}
+        // x and y are motion values (passed in as props via style prop) from useMotionValue
+        // x and y motion values track state of drag
+        // rotateX and rotateY are motion values from useTransform - change when x and y change
+        style={{ x, y, rotateX, rotateY, translateZ: 120, cursor: 'grab' }}
         drag
-        dragElastic={0.16}
+        dragElastic={0.2}
         dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
-        whileTap={{ cursor: 'grabbing' }}
+        whileDrag={{ cursor: 'grabbing' }}
       >
         <div className="top-container">{createTopItems()}</div>
         <div className="bottom-container">{createBottomItems()}</div>

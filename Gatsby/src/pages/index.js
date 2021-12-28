@@ -24,53 +24,17 @@ const IndexPageStyles = styled.div`
     }
   }
 
-  h1 {
+  /* h1 {
     @media (max-width: 600px) {
       font-size: 1.5rem;
       padding-top: 2rem;
       padding-bottom: 3rem;
     }
-  }
+  } */
 
   .info {
     @media (max-width: 700px) {
       flex: 1;
-    }
-  }
-
-  .link {
-    display: inline-block;
-    font-size: 1.15rem;
-    font-weight: bold;
-    color: var(--color-background);
-    background: var(--color-primary);
-    border: 2px solid hsl(0deg, 0%, 10%);
-    --cast: 3px;
-    box-shadow: 0 var(--cast) 0 0 hsl(0deg, 0%, 10%);
-    padding: 0.6rem 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s;
-
-    &:hover,
-    &:focus {
-      --cast: 2.5px;
-      opacity: 0.9;
-    }
-
-    // only add outline if keyboard navigation
-    &:focus-visible {
-      outline: 2px auto var(--color-primary);
-      outline-offset: 1px;
-    }
-
-    @media (max-width: 900px) {
-      padding: 0.42rem 0.7rem;
-      border-radius: 4.2px;
-    }
-
-    @media (max-width: 600px) {
-      font-size: 1rem;
     }
   }
 
@@ -196,7 +160,7 @@ const linkButtonVariants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { duration: 1.6 },
+    transition: { duration: 2 },
   },
 };
 
@@ -262,7 +226,7 @@ const IndexPage = function ({ data }) {
             initial="hidden"
             animate="visible"
           >
-            <Link to="/#projects" className="link">
+            <Link to="/#projects" className="internal-link">
               My Projects
             </Link>
           </motion.div>
@@ -285,7 +249,7 @@ const IndexPage = function ({ data }) {
         <h2>My skills</h2>
         <p className="paragraph-skills">
           I am a full stack developer with a primary focus on React. Here are
-          some the technologies that I have experience with:
+          some of the technologies that I have experience with:
         </p>
         <ul className="skills-list">
           <li>Figma</li>
