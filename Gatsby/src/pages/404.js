@@ -1,6 +1,5 @@
 import { Link } from 'gatsby';
 import React from 'react';
-import { BsArrowUpLeft } from 'react-icons/bs';
 import styled from 'styled-components';
 
 const NotFoundStyles = styled.div`
