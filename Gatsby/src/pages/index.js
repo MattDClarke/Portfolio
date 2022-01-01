@@ -248,8 +248,9 @@ const IndexPage = function ({ data }) {
       >
         <h2>My skills</h2>
         <p className="paragraph-skills">
-          I am a full stack developer with a primary focus on React. Here are
-          some of the technologies that I have experience with:
+          I am a full stack developer, from South Africa, with a primary focus
+          on React. Here are some of the technologies that I have experience
+          with:
         </p>
         <ul className="skills-list">
           <li>Figma</li>
