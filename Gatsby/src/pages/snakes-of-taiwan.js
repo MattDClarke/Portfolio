@@ -1,6 +1,9 @@
+import { graphql } from 'gatsby';
 import React from 'react';
 
-const snakesOfTaiwan = function () {
+const snakesOfTaiwan = function ({ data }) {
+  const snakesOfTaiwanInfo = data.snakesOfTaiwan.edges[0].node;
+  console.log(snakesOfTaiwanInfo);
   return (
     <>
       <h1>Snakes of Taiwan</h1>
@@ -95,3 +98,31 @@ const snakesOfTaiwan = function () {
   );
 };
 export default snakesOfTaiwan;
+
+export const query = graphql`
+  query snakesOfTaiwanPageQuery {
+    snakesOfTaiwan: allSanityProjectPage(
+      filter: { name: { eq: "Snakes of Taiwan" } }
+    ) {
+      edges {
+        node {
+          lightModeImages {
+            asset {
+              gatsbyImageData
+            }
+          }
+          projectPageInfo {
+            gitHubLink
+            websiteLink
+          }
+          darkModeImages {
+            asset {
+              gatsbyImageData
+            }
+          }
+          name
+        }
+      }
+    }
+  }
+`;

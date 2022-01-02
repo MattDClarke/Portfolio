@@ -48,13 +48,13 @@ export default {
     {
       name: 'gitHubLink',
       title: 'GitHub link',
-      type: 'string',
+      type: 'url',
       description: 'GitHub repository URL',
     },
     {
       name: 'websiteLink',
       title: 'Website link',
-      type: 'string',
+      type: 'url',
       description: 'Website URL',
     },
   ],

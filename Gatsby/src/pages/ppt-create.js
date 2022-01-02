@@ -1,6 +1,9 @@
+import { graphql } from 'gatsby';
 import React from 'react';
 
-const pptCreate = function () {
+const pptCreate = function ({ data }) {
+  const pptCreateInfo = data.pptCreate.edges[0].node;
+  console.log(pptCreateInfo);
   return (
     <>
       <h1>ppt Create</h1>
@@ -170,3 +173,29 @@ const pptCreate = function () {
   );
 };
 export default pptCreate;
+
+export const query = graphql`
+  query pptCreatePageQuery {
+    pptCreate: allSanityProjectPage(filter: { name: { eq: "ppt Create" } }) {
+      edges {
+        node {
+          lightModeImages {
+            asset {
+              gatsbyImageData
+            }
+          }
+          projectPageInfo {
+            gitHubLink
+            websiteLink
+          }
+          darkModeImages {
+            asset {
+              gatsbyImageData
+            }
+          }
+          name
+        }
+      }
+    }
+  }
+`;
