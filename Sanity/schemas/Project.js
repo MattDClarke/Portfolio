@@ -3,7 +3,7 @@ import { GrNotes as icon } from 'react-icons/gr';
 export default {
   name: 'project',
   // visible title
-  title: 'Projects',
+  title: 'Project info - on index page',
   type: 'document',
   icon,
   fields: [

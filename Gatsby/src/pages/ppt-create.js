@@ -117,12 +117,13 @@ const pptCreate = function () {
       <h3>Lists Page</h3>
       <p>
         Word lists for Korean Elementary School curriculum books and word lists
-        for some common topics were added to the lists page. The user can select
-        up to 3 lists that can then be used to create a PowerPoint presentation.
-        The user is re-directed to the create page and the word list form is
-        auto-populated with their selected word lists. The word lists state is
-        global, it makes use of the React Context API. This allows easy sharing
-        of the state between pages.
+        for some common topics were added to the lists page. The word lists are
+        fetched using React Query. The user can select up to 3 lists that can
+        then be used to create a PowerPoint presentation. The user is
+        re-directed to the create page and the word list form is auto-populated
+        with their selected word lists. The word lists state is global, it makes
+        use of the React Context API. This allows easy sharing of the state
+        between pages.
       </p>
       <h3>Admin Page</h3>
       <p>
