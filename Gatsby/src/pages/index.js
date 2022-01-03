@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import ContactForm from '../components/HomePage/ContactForm';
 import Illustration from '../components/HomePage/Illustration';
 import Project from '../components/HomePage/Project';
@@ -24,13 +25,13 @@ const IndexPageStyles = styled.div`
     }
   }
 
-  /* h1 {
+  h1 {
     @media (max-width: 600px) {
       font-size: 1.5rem;
       padding-top: 2rem;
       padding-bottom: 3rem;
     }
-  } */
+  }
 
   .info {
     @media (max-width: 700px) {
@@ -74,43 +75,6 @@ const IndexPageStyles = styled.div`
           transform: translateY(1.5em);
         }
       }
-    }
-  }
-
-  .paragraph-skills {
-    font-size: 1.3rem;
-
-    @media (max-width: 600px) {
-      font-size: 1rem;
-    }
-  }
-
-  .skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    padding-left: 0;
-    li {
-      width: 130px;
-      padding: 0.5rem 0;
-      font-weight: 500;
-
-      &:before {
-        content: '';
-        background: var(--color-secondary);
-        width: 0.75rem;
-        height: 0.75rem;
-        border-radius: 50%;
-        display: inline-block;
-        line-height: 0.5rem;
-        color: white;
-        text-align: center;
-        margin-right: 0.5rem;
-      }
-    }
-
-    @media (max-width: 600px) {
-      font-size: 0.9rem;
     }
   }
 
@@ -226,9 +190,13 @@ const IndexPage = function ({ data }) {
             initial="hidden"
             animate="visible"
           >
-            <Link to="/#projects" className="internal-link">
+            <AnchorLink
+              to="/#projects"
+              className="internal-link"
+              title="Projects"
+            >
               My Projects
-            </Link>
+            </AnchorLink>
           </motion.div>
         </div>
         <Illustration />
@@ -247,7 +215,7 @@ const IndexPage = function ({ data }) {
         animate="visible"
       >
         <h2>My skills</h2>
-        <p className="paragraph-skills">
+        <p>
           I am a full stack developer, from South Africa, with a primary focus
           on React. Here are some of the technologies that I have experience
           with:

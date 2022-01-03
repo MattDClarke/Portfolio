@@ -41,12 +41,10 @@ const ProjectStyles = styled(motion.div)`
     max-width: 450px;
 
     p {
-      font-size: 1.25rem;
       padding-bottom: 0;
 
       @media (max-width: 900px) {
         max-width: 500px;
-        font-size: 1rem;
       }
     }
   }

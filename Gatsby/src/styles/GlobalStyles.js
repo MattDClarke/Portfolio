@@ -68,13 +68,6 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
-  h1 {
-    @media (max-width: 600px) {
-      font-size: 1.5rem;
-      padding-top: 2rem;
-      padding-bottom: 3rem;
-    }
-  }
 
   // improve media defaults
   img, picture, video, canvas, svg {
@@ -163,7 +156,7 @@ const GlobalStyles = createGlobalStyle`
     content: attr(aria-label);
     opacity: 0;
     position: absolute;
-    top: 25px;
+    top: 40px;
     right: -15px;
     z-index: 1;
     pointer-events: none;
@@ -181,10 +174,41 @@ const GlobalStyles = createGlobalStyle`
     opacity: 1;
   }
 
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-left: 0;
+    li {
+      width: 130px;
+      padding: 0.5rem 0;
+      font-weight: 500;
+
+      &:before {
+        content: '';
+        background: var(--color-secondary);
+        width: 0.75rem;
+        height: 0.75rem;
+        border-radius: 50%;
+        display: inline-block;
+        line-height: 0.5rem;
+        color: white;
+        text-align: center;
+        margin-right: 0.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      font-size: 0.9rem;
+    }
+  }
+
   .text-link {
     --rotate: -1deg;
     --scaleX: 1;
     position: relative;
+    color: var(--color-text);
+    transition: color 0.3s ease-in-out;
 
     &:before {
       height: 2px;
@@ -200,10 +224,12 @@ const GlobalStyles = createGlobalStyle`
     &:hover {
       --rotate: 0deg;
       --scaleX: 1.05;
+      color: var(--color-primary);
     }
     &:focus {
       --rotate: 0deg;
       --scaleX: 1.05;
+      color: var(--color-primary);
     }
   }
 
@@ -244,12 +270,6 @@ const GlobalStyles = createGlobalStyle`
 
     @media (max-width: 600px) {
       font-size: 1rem;
-    }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    html {
-      scroll-behavior: smooth;
     }
   }
 

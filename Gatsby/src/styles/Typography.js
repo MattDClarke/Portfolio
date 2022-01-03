@@ -52,8 +52,11 @@ const Typography = createGlobalStyle`
     }
 
     @media (max-width: 600px) {
-      font-size: 1.5rem;
+      font-size: 2.4rem;
       padding-bottom: 2rem;
+    }
+    @media (max-width: 400px) {
+      font-size: 1.96rem;
     }
   }
 
@@ -70,6 +73,10 @@ const Typography = createGlobalStyle`
       font-size: 2rem;
       padding: 1rem 0;
     }
+
+    @media (max-width: 400px) {
+      font-size: 1.62rem;
+    }
   }
 
   h3 {
@@ -85,6 +92,9 @@ const Typography = createGlobalStyle`
       font-size: 1.6rem;
       padding: 0.5rem 0;
     }
+    @media (max-width: 400px) {
+      font-size: 1.3rem;
+    }
   }
 
   p, li {
@@ -98,6 +108,13 @@ const Typography = createGlobalStyle`
     @media (max-width: 600px) {
       padding-bottom: 1rem;
     }
+  }
+  p {
+    font-size: 1.188rem;
+
+    @media (max-width: 600px) {
+        font-size: 1rem;
+      }
   }
 
   a {

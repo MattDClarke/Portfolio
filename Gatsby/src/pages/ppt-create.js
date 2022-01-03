@@ -1,15 +1,44 @@
 import React, { useContext } from 'react';
 import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import { FiGithub } from 'react-icons/fi';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 import { ThemeContext } from '../components/ThemeContext';
 
 const PptCreate = function ({ data }) {
   const pptCreateInfo = data.pptCreate.edges[0].node;
-  console.log(pptCreateInfo);
   const { colorMode } = useContext(ThemeContext);
   return (
     <>
       <h1>ppt Create</h1>
+
+      {pptCreateInfo.projectPageInfo.gitHubLink ? (
+        <span style={{ paddingRight: '13px' }}>
+          <a
+            href={pptCreateInfo.projectPageInfo.gitHubLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <title id="gitHub">GitHub</title>
+            Source Code
+            <FiGithub />
+          </a>
+        </span>
+      ) : (
+        ''
+      )}
+
+      <span>
+        <a
+          href={pptCreateInfo.projectPageInfo.websiteLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Website
+          <FaExternalLinkAlt />
+        </a>
+      </span>
+
       <p>
         When I was an Elementary School English teacher in Korea, I often had to
         make PowerPoint presentations to introduce new vocabulary. Many of these
@@ -74,7 +103,7 @@ const PptCreate = function ({ data }) {
       </ul>
       <h3>Back-end</h3>
       <p>
-        Redis, along with the library{' '}
+        Redis, along with{' '}
         <a
           href="https://www.npmjs.com/package/rate-limiter-flexible"
           target="_blank"
@@ -95,7 +124,6 @@ const PptCreate = function ({ data }) {
       <h2>Key Features</h2>
       <h3>Creating PowerPoints</h3>
       <p>
-        The library{' '}
         <a
           href="https://gitbrent.github.io/PptxGenJS"
           target="_blank"
@@ -269,7 +297,6 @@ export const query = graphql`
               gatsbyImageData(placeholder: BLURRED)
             }
           }
-          name
         }
       }
     }

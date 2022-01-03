@@ -23,5 +23,6 @@ export default {
         token: process.env.SANITY_TOKEN,
       },
     },
+    `gatsby-plugin-anchor-links`,
   ],
 };
