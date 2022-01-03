@@ -1,5 +1,6 @@
-import { graphql } from 'gatsby';
 import React from 'react';
+import { graphql } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const snakesOfTaiwan = function ({ data }) {
   const snakesOfTaiwanInfo = data.snakesOfTaiwan.edges[0].node;
@@ -22,6 +23,14 @@ const snakesOfTaiwan = function ({ data }) {
         accepted the offer and in the end, they were happy with the website
         re-design.
       </p>
+      <GatsbyImage
+        image={snakesOfTaiwanInfo.darkModeImages[0].asset.gatsbyImageData}
+        alt="Screenshot of home page - desktop"
+      />
+      <GatsbyImage
+        image={snakesOfTaiwanInfo.darkModeImages[1].asset.gatsbyImageData}
+        alt="Screenshot of home page - mobile"
+      />
       <h2>Tech Stack</h2>
       <p>
         Nunjucks was used as a templating language and Gulp was used to build
@@ -42,6 +51,10 @@ const snakesOfTaiwan = function ({ data }) {
         one for Chinese. Different fonts were used for English text and Chinese
         text.
       </p>
+      <GatsbyImage
+        image={snakesOfTaiwanInfo.darkModeImages[2].asset.gatsbyImageData}
+        alt="Screenshot of Chinese page"
+      />
       <h3>Image carousels</h3>
       <p>
         The{' '}
@@ -57,12 +70,20 @@ const snakesOfTaiwan = function ({ data }) {
         images at once and the images can also be viewed full screen. The images
         are lazy-loaded. Only the current, next and previous images are loaded.
       </p>
+      <GatsbyImage
+        image={snakesOfTaiwanInfo.darkModeImages[3].asset.gatsbyImageData}
+        alt="Screenshot of image carousel"
+      />
       <h3>Species Search</h3>
       <p>
         A JavaScript filter function is used to search for species pages, in an
         unordered list, from the search input. The list is populated with
         species data from a JSON file, using Gulp, at build time.
       </p>
+      <GatsbyImage
+        image={snakesOfTaiwanInfo.darkModeImages[1].asset.gatsbyImageData}
+        alt="Screenshot of species search input"
+      />
 
       <h2>Difficult Problems Faced</h2>
       <h3>Creating image variants</h3>
@@ -108,7 +129,7 @@ export const query = graphql`
         node {
           lightModeImages {
             asset {
-              gatsbyImageData
+              gatsbyImageData(placeholder: BLURRED)
             }
           }
           projectPageInfo {
@@ -117,7 +138,7 @@ export const query = graphql`
           }
           darkModeImages {
             asset {
-              gatsbyImageData
+              gatsbyImageData(placeholder: BLURRED)
             }
           }
           name

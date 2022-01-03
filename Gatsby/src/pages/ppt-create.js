@@ -1,9 +1,12 @@
+import React, { useContext } from 'react';
 import { graphql } from 'gatsby';
-import React from 'react';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { ThemeContext } from '../components/ThemeContext';
 
-const pptCreate = function ({ data }) {
+const PptCreate = function ({ data }) {
   const pptCreateInfo = data.pptCreate.edges[0].node;
   console.log(pptCreateInfo);
+  const { colorMode } = useContext(ThemeContext);
   return (
     <>
       <h1>ppt Create</h1>
@@ -47,6 +50,15 @@ const pptCreate = function ({ data }) {
         translation language and layout types. The created PowerPoint
         presentation is downloaded to the user's Downloads folder.
       </p>
+      <GatsbyImage
+        image={
+          colorMode === 'dark'
+            ? pptCreateInfo.darkModeImages[0].asset.gatsbyImageData
+            : pptCreateInfo.lightModeImages[0].asset.gatsbyImageData
+        }
+        alt="Diagram of user workflow"
+      />
+
       <h2>Tech Stack</h2>
       <h3>Front-end</h3>
       <p>
@@ -100,6 +112,14 @@ const pptCreate = function ({ data }) {
         into a section in the created PowerPoint presentation. The created
         PowerPoint presentation is saved to the user's Downloads folder.{' '}
       </p>
+      <GatsbyImage
+        image={
+          colorMode === 'dark'
+            ? pptCreateInfo.darkModeImages[1].asset.gatsbyImageData
+            : pptCreateInfo.lightModeImages[1].asset.gatsbyImageData
+        }
+        alt="Screenshot of create page"
+      />
       <h3>Selecting images for each word</h3>
       <p>
         For each word added in the word list used to create a PowerPoint
@@ -109,6 +129,22 @@ const pptCreate = function ({ data }) {
         After selecting the images, another dialog gives the user a form with
         options for the PowerPoint presentation layout.
       </p>
+      <GatsbyImage
+        image={
+          colorMode === 'dark'
+            ? pptCreateInfo.darkModeImages[2].asset.gatsbyImageData
+            : pptCreateInfo.lightModeImages[2].asset.gatsbyImageData
+        }
+        alt="Screenshot of image select dialog"
+      />
+      <GatsbyImage
+        image={
+          colorMode === 'dark'
+            ? pptCreateInfo.darkModeImages[3].asset.gatsbyImageData
+            : pptCreateInfo.lightModeImages[3].asset.gatsbyImageData
+        }
+        alt="Screenshot of PowerPoint presentation options"
+      />
       <h3>Storing users word lists</h3>
       <p>
         The users saved word lists are saved in MongoDB. The user can edit,
@@ -117,6 +153,14 @@ const pptCreate = function ({ data }) {
         better user experience because data is not fetched unnecessarily, there
         were fewer loading spinners after adding it.
       </p>
+      <GatsbyImage
+        image={
+          colorMode === 'dark'
+            ? pptCreateInfo.darkModeImages[4].asset.gatsbyImageData
+            : pptCreateInfo.lightModeImages[4].asset.gatsbyImageData
+        }
+        alt="Screenshot of Saved word lists"
+      />
       <h3>Lists Page</h3>
       <p>
         Word lists for Korean Elementary School curriculum books and word lists
@@ -128,6 +172,30 @@ const pptCreate = function ({ data }) {
         use of the React Context API. This allows easy sharing of the state
         between pages.
       </p>
+      <GatsbyImage
+        image={
+          colorMode === 'dark'
+            ? pptCreateInfo.darkModeImages[5].asset.gatsbyImageData
+            : pptCreateInfo.lightModeImages[5].asset.gatsbyImageData
+        }
+        alt="Screenshot of word lists page"
+      />
+      <GatsbyImage
+        image={
+          colorMode === 'dark'
+            ? pptCreateInfo.darkModeImages[6].asset.gatsbyImageData
+            : pptCreateInfo.lightModeImages[6].asset.gatsbyImageData
+        }
+        alt="Screenshot of textbook page"
+      />
+      <GatsbyImage
+        image={
+          colorMode === 'dark'
+            ? pptCreateInfo.darkModeImages[7].asset.gatsbyImageData
+            : pptCreateInfo.lightModeImages[7].asset.gatsbyImageData
+        }
+        alt="Screenshot of textbook word lists page"
+      />
       <h3>Admin Page</h3>
       <p>
         An admin page was created to make adding textbook information and word
@@ -136,6 +204,14 @@ const pptCreate = function ({ data }) {
         and delete them if needed. The user list is paginated and React Query is
         used to fetch each page and cache previously used pages.
       </p>
+      <GatsbyImage
+        image={
+          colorMode === 'dark'
+            ? pptCreateInfo.darkModeImages[8].asset.gatsbyImageData
+            : pptCreateInfo.lightModeImages[8].asset.gatsbyImageData
+        }
+        alt="Screenshot of admin page"
+      />
       <h2>Difficult Problems Faced</h2>
       <h3>Fitting different length text into a PowerPoint slide</h3>
       <p>
@@ -172,7 +248,7 @@ const pptCreate = function ({ data }) {
     </>
   );
 };
-export default pptCreate;
+export default PptCreate;
 
 export const query = graphql`
   query pptCreatePageQuery {
@@ -181,7 +257,7 @@ export const query = graphql`
         node {
           lightModeImages {
             asset {
-              gatsbyImageData
+              gatsbyImageData(placeholder: BLURRED)
             }
           }
           projectPageInfo {
@@ -190,7 +266,7 @@ export const query = graphql`
           }
           darkModeImages {
             asset {
-              gatsbyImageData
+              gatsbyImageData(placeholder: BLURRED)
             }
           }
           name
