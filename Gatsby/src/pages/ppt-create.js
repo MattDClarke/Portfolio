@@ -1,17 +1,76 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FiGithub } from 'react-icons/fi';
 import { FaExternalLinkAlt } from 'react-icons/fa';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import { ThemeContext } from '../components/ThemeContext';
 import { ProjectPageStyles } from '../components/ProjectPageStyles/ProjectPageStyles';
+import {
+  headerVariants,
+  imageSlideInFromLeftVariants,
+  imageSlideInFromRightVariants,
+} from '../components/animation/projectPageVariants';
 
 const PptCreatePage = function ({ data }) {
   const pptCreateInfo = data.pptCreate.edges[0].node;
   const { colorMode } = useContext(ThemeContext);
+  const controls1 = useAnimation();
+  const controls2 = useAnimation();
+  const controls3 = useAnimation();
+  const controls4 = useAnimation();
+  const controls5 = useAnimation();
+  const controls6 = useAnimation();
+
+  const [ref1, inView1] = useInView();
+  const [ref2, inView2] = useInView();
+  const [ref3, inView3] = useInView();
+  const [ref4, inView4] = useInView();
+  const [ref5, inView5] = useInView();
+  const [ref6, inView6] = useInView();
+
+  useEffect(() => {
+    if (inView1) {
+      controls1.start('visible');
+    }
+  }, [controls1, inView1]);
+
+  useEffect(() => {
+    if (inView2) {
+      controls2.start('visible');
+    }
+  }, [controls2, inView2]);
+
+  useEffect(() => {
+    if (inView3) {
+      controls3.start('visible');
+    }
+  }, [controls3, inView3]);
+
+  useEffect(() => {
+    if (inView4) {
+      controls4.start('visible');
+    }
+  }, [controls4, inView4]);
+
+  useEffect(() => {
+    if (inView5) {
+      controls5.start('visible');
+    }
+  }, [controls5, inView5]);
+
+  useEffect(() => {
+    if (inView6) {
+      controls6.start('visible');
+    }
+  }, [controls6, inView6]);
+
   return (
     <ProjectPageStyles>
-      <h1>ppt Create</h1>
+      <motion.h1 variants={headerVariants} initial="hidden" animate="visible">
+        ppt Create
+      </motion.h1>
 
       <div className="links-container">
         {pptCreateInfo.projectPageInfo.gitHubLink ? (
@@ -85,7 +144,13 @@ const PptCreatePage = function ({ data }) {
           background colour, translation language and layout types. The created
           PowerPoint presentation is downloaded to the user's Downloads folder.
         </p>
-        <div className="img-container--centered">
+        <motion.div
+          className="img-container--centered"
+          variants={imageSlideInFromRightVariants}
+          initial="hidden"
+          animate={controls1}
+          ref={ref1}
+        >
           <GatsbyImage
             image={
               colorMode === 'dark'
@@ -94,7 +159,7 @@ const PptCreatePage = function ({ data }) {
             }
             alt="Diagram of user workflow"
           />
-        </div>
+        </motion.div>
       </section>
 
       <section>
@@ -158,7 +223,13 @@ const PptCreatePage = function ({ data }) {
           folder.{' '}
         </p>
 
-        <div className="extra-padding-bottom">
+        <motion.div
+          className="extra-padding-bottom"
+          variants={imageSlideInFromLeftVariants}
+          initial="hidden"
+          animate={controls2}
+          ref={ref2}
+        >
           <GatsbyImage
             image={
               colorMode === 'dark'
@@ -167,7 +238,7 @@ const PptCreatePage = function ({ data }) {
             }
             alt="Screenshot of create page"
           />
-        </div>
+        </motion.div>
 
         <h3>Selecting images for each word</h3>
         <p>
@@ -179,7 +250,13 @@ const PptCreatePage = function ({ data }) {
           form with options for the PowerPoint presentation layout.
         </p>
 
-        <div className="imgs-container img-container--tall extra-padding-bottom">
+        <motion.div
+          className="imgs-container img-container--tall extra-padding-bottom"
+          variants={imageSlideInFromRightVariants}
+          initial="hidden"
+          animate={controls3}
+          ref={ref3}
+        >
           <GatsbyImage
             image={
               colorMode === 'dark'
@@ -196,7 +273,7 @@ const PptCreatePage = function ({ data }) {
             }
             alt="Screenshot of PowerPoint presentation options"
           />
-        </div>
+        </motion.div>
 
         <h3>Storing users word lists</h3>
         <p>
@@ -207,7 +284,13 @@ const PptCreatePage = function ({ data }) {
           unnecessarily, there were fewer loading spinners after adding it.
         </p>
 
-        <div className="extra-padding-bottom">
+        <motion.div
+          className="extra-padding-bottom"
+          variants={imageSlideInFromLeftVariants}
+          initial="hidden"
+          animate={controls4}
+          ref={ref4}
+        >
           <GatsbyImage
             image={
               colorMode === 'dark'
@@ -216,7 +299,7 @@ const PptCreatePage = function ({ data }) {
             }
             alt="Screenshot of Saved word lists"
           />
-        </div>
+        </motion.div>
 
         <h3>Lists Page</h3>
         <p>
@@ -230,7 +313,13 @@ const PptCreatePage = function ({ data }) {
           sharing of the state between pages.
         </p>
 
-        <div className="imgs-container extra-padding-bottom">
+        <motion.div
+          className="imgs-container extra-padding-bottom"
+          variants={imageSlideInFromRightVariants}
+          initial="hidden"
+          animate={controls5}
+          ref={ref5}
+        >
           <GatsbyImage
             image={
               colorMode === 'dark'
@@ -255,7 +344,7 @@ const PptCreatePage = function ({ data }) {
             }
             alt="Screenshot of textbook word lists page"
           />
-        </div>
+        </motion.div>
 
         <h3>Admin Page</h3>
         <p>
@@ -266,7 +355,13 @@ const PptCreatePage = function ({ data }) {
           Query is used to fetch each page and cache previously used pages.
         </p>
 
-        <div className="img-container--tall">
+        <motion.div
+          className="img-container--tall"
+          variants={imageSlideInFromLeftVariants}
+          initial="hidden"
+          animate={controls6}
+          ref={ref6}
+        >
           <GatsbyImage
             image={
               colorMode === 'dark'
@@ -275,7 +370,7 @@ const PptCreatePage = function ({ data }) {
             }
             alt="Screenshot of admin page"
           />
-        </div>
+        </motion.div>
       </section>
 
       <section>
