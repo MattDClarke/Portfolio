@@ -4,11 +4,12 @@ dotenv.config({ path: '.env' });
 
 export default {
   siteMetadata: {
-    title: `Matt D. Clarke's portfolio and blog`,
+    title: `Matt D. Clarke's portfolio`,
     description: `Web developer portfolio and blog`,
-    siteUrl: 'https://www.mattdclarke.tech/',
+    siteUrl: 'https://www.mattdclarke.tech',
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     // surfaces CSS to Gatsby - optimize - critical CSS, ...
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,

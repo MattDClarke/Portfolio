@@ -8,6 +8,7 @@ import ContactForm from '../components/HomePage/ContactForm';
 import Illustration from '../components/HomePage/Illustration';
 import Project from '../components/HomePage/Project';
 import AnimatedLetters from '../components/animation/AnimatedLetters';
+import SEO from '../components/SEO';
 
 const IndexPageStyles = styled.div`
   .container {
@@ -157,6 +158,7 @@ const contactVariants = {
 
 const IndexPage = function ({ data }) {
   const projects = data.projects.nodes;
+  console.log(projects);
 
   const controlsContact = useAnimation();
   const [refContact, inViewContact] = useInView();
@@ -168,91 +170,100 @@ const IndexPage = function ({ data }) {
   }, [controlsContact, inViewContact]);
 
   return (
-    <IndexPageStyles>
-      <div className="container">
-        <div className="info">
-          <motion.h1
-            variants={headerContainer}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.span variants={headerItem}>Hi, I’m Matt.</motion.span>{' '}
-            <br />
-            <motion.span variants={headerItem}>
-              I’m a Full Stack <br />
-            </motion.span>
-            <motion.span variants={headerItem} className="color-primary">
-              JavaScript <AnimatedLetters title="Developer" />
-            </motion.span>
-          </motion.h1>
-          <motion.div
-            variants={linkButtonVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <AnchorLink
-              to="/#projects"
-              className="internal-link"
-              title="Projects"
-            >
-              My Projects
-            </AnchorLink>
-          </motion.div>
-        </div>
-        <Illustration />
-      </div>
-
-      <motion.div
-        className="scroll-indicator"
-        variants={scrollIndicatorVariants}
-        initial="hidden"
-        animate="visible"
+    <>
+      <SEO
+        title="Home"
+        image={
+          projects[0]?.imageHomePageLight?.asset?.gatsbyImageData?.images
+            ?.fallback?.src
+        }
       />
+      <IndexPageStyles>
+        <div className="container">
+          <div className="info">
+            <motion.h1
+              variants={headerContainer}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.span variants={headerItem}>Hi, I’m Matt.</motion.span>{' '}
+              <br />
+              <motion.span variants={headerItem}>
+                I’m a Full Stack <br />
+              </motion.span>
+              <motion.span variants={headerItem} className="color-primary">
+                JavaScript <AnimatedLetters title="Developer" />
+              </motion.span>
+            </motion.h1>
+            <motion.div
+              variants={linkButtonVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <AnchorLink
+                to="/#projects"
+                className="internal-link"
+                title="Projects"
+              >
+                My Projects
+              </AnchorLink>
+            </motion.div>
+          </div>
+          <Illustration />
+        </div>
 
-      <motion.section
-        variants={skillsVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <h2>My skills</h2>
-        <p>
-          I am a full stack developer, from South Africa, with a primary focus
-          on React. Here are some of the technologies that I have experience
-          with:
-        </p>
-        <ul className="skills-list">
-          <li>Figma</li>
-          <li>Git</li>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>SASS</li>
-          <li>JavaScript</li>
-          <li>React</li>
-          <li>Node</li>
-          <li>Express</li>
-          <li>MongoDB</li>
-        </ul>
-      </motion.section>
-
-      <section>
-        <h2 id="projects">My Projects</h2>
-        {projects.map((project) => (
-          <Project project={project} key={project.id} />
-        ))}
-      </section>
-
-      <section>
-        <h2 id="contact">Contact</h2>
         <motion.div
-          variants={contactVariants}
+          className="scroll-indicator"
+          variants={scrollIndicatorVariants}
           initial="hidden"
-          animate={controlsContact}
-          ref={refContact}
+          animate="visible"
+        />
+
+        <motion.section
+          variants={skillsVariants}
+          initial="hidden"
+          animate="visible"
         >
-          <ContactForm />
-        </motion.div>
-      </section>
-    </IndexPageStyles>
+          <h2>My skills</h2>
+          <p>
+            I am a full stack developer, from South Africa, with a primary focus
+            on React. Here are some of the technologies that I have experience
+            with:
+          </p>
+          <ul className="skills-list">
+            <li>Figma</li>
+            <li>Git</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>SASS</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Node</li>
+            <li>Express</li>
+            <li>MongoDB</li>
+          </ul>
+        </motion.section>
+
+        <section>
+          <h2 id="projects">My Projects</h2>
+          {projects.map((project) => (
+            <Project project={project} key={project.id} />
+          ))}
+        </section>
+
+        <section>
+          <h2 id="contact">Contact</h2>
+          <motion.div
+            variants={contactVariants}
+            initial="hidden"
+            animate={controlsContact}
+            ref={refContact}
+          >
+            <ContactForm />
+          </motion.div>
+        </section>
+      </IndexPageStyles>
+    </>
   );
 };
 
