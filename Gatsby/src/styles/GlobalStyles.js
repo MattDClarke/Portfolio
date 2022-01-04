@@ -156,7 +156,7 @@ const GlobalStyles = createGlobalStyle`
     content: attr(aria-label);
     opacity: 0;
     position: absolute;
-    top: 40px;
+    top: 25px;
     right: -15px;
     z-index: 1;
     pointer-events: none;
@@ -180,7 +180,7 @@ const GlobalStyles = createGlobalStyle`
     list-style: none;
     padding-left: 0;
     li {
-      width: 130px;
+      width: 150px;
       padding: 0.5rem 0;
       font-weight: 500;
 
