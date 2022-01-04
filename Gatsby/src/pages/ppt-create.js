@@ -6,7 +6,7 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 import { ThemeContext } from '../components/ThemeContext';
 import { ProjectPageStyles } from '../components/ProjectPageStyles/ProjectPageStyles';
 
-const PptCreate = function ({ data }) {
+const PptCreatePage = function ({ data }) {
   const pptCreateInfo = data.pptCreate.edges[0].node;
   const { colorMode } = useContext(ThemeContext);
   return (
@@ -319,7 +319,7 @@ const PptCreate = function ({ data }) {
     </ProjectPageStyles>
   );
 };
-export default PptCreate;
+export default PptCreatePage;
 
 export const query = graphql`
   query pptCreatePageQuery {

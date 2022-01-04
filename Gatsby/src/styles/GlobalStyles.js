@@ -68,7 +68,6 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
-
   // improve media defaults
   img, picture, video, canvas, svg {
     display: block;

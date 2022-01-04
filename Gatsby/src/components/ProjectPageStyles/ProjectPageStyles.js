@@ -26,13 +26,14 @@ export const ProjectPageStyles = styled.div`
   }
 
   .gatsby-image-wrapper {
-    margin: 1.5rem 0;
-    margin-right: 1rem;
+    margin: 1.5rem 1rem;
+    /* margin-right: 1rem; */
+    /* padding: 0 1rem; */
     box-shadow: 3px 3px 3px var(--color-gray-400);
     max-width: 500px;
 
-    @media (max-width: 800px) {
-      margin-right: 0;
+    @media (max-width: 600px) {
+      margin: 1.5rem 0;
     }
   }
 

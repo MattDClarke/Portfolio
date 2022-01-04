@@ -7,7 +7,7 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import ContactForm from '../components/HomePage/ContactForm';
 import Illustration from '../components/HomePage/Illustration';
 import Project from '../components/HomePage/Project';
-import AnimatedLetters from '../components/HomePage/AnimatedLetters';
+import AnimatedLetters from '../components/animation/AnimatedLetters';
 
 const IndexPageStyles = styled.div`
   .container {

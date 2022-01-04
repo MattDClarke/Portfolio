@@ -1,15 +1,57 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FiGithub } from 'react-icons/fi';
 import { FaExternalLinkAlt } from 'react-icons/fa';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import { ProjectPageStyles } from '../components/ProjectPageStyles/ProjectPageStyles';
+import {
+  headerVariants,
+  imageSlideInFromLeftVariants,
+  imageSlideInFromRightVariants,
+} from '../components/animation/projectPageVariants';
 
-const snakesOfTaiwan = function ({ data }) {
+const SnakesOfTaiwanPage = function ({ data }) {
   const snakesOfTaiwanInfo = data.snakesOfTaiwan.edges[0].node;
+  const controls1 = useAnimation();
+  const controls2 = useAnimation();
+  const controls3 = useAnimation();
+  const controls4 = useAnimation();
+  const [ref1, inView1] = useInView();
+  const [ref2, inView2] = useInView();
+  const [ref3, inView3] = useInView();
+  const [ref4, inView4] = useInView();
+
+  useEffect(() => {
+    if (inView1) {
+      controls1.start('visible');
+    }
+  }, [controls1, inView1]);
+
+  useEffect(() => {
+    if (inView2) {
+      controls2.start('visible');
+    }
+  }, [controls2, inView2]);
+
+  useEffect(() => {
+    if (inView3) {
+      controls3.start('visible');
+    }
+  }, [controls3, inView3]);
+
+  useEffect(() => {
+    if (inView4) {
+      controls4.start('visible');
+    }
+  }, [controls4, inView4]);
+
   return (
     <ProjectPageStyles>
-      <h1>Snakes of Taiwan</h1>
+      <motion.h1 variants={headerVariants} initial="hidden" animate="visible">
+        Snakes of Taiwan
+      </motion.h1>
 
       <div className="links-container">
         {snakesOfTaiwanInfo.projectPageInfo.gitHubLink ? (
@@ -54,7 +96,13 @@ const snakesOfTaiwan = function ({ data }) {
           They accepted the offer and in the end, they were happy with the
           website re-design.
         </p>
-        <div className="imgs-container">
+        <motion.div
+          className="imgs-container"
+          variants={imageSlideInFromRightVariants}
+          initial="hidden"
+          animate={controls1}
+          ref={ref1}
+        >
           <GatsbyImage
             image={snakesOfTaiwanInfo.darkModeImages[0].asset.gatsbyImageData}
             alt="Screenshot of home page - desktop"
@@ -65,7 +113,7 @@ const snakesOfTaiwan = function ({ data }) {
               alt="Screenshot of home page - mobile"
             />
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section>
@@ -93,12 +141,18 @@ const snakesOfTaiwan = function ({ data }) {
           Chinese text.
         </p>
 
-        <div className="extra-padding-bottom">
+        <motion.div
+          className="extra-padding-bottom"
+          variants={imageSlideInFromLeftVariants}
+          initial="hidden"
+          animate={controls2}
+          ref={ref2}
+        >
           <GatsbyImage
             image={snakesOfTaiwanInfo.darkModeImages[2].asset.gatsbyImageData}
             alt="Screenshot of Chinese page"
           />
-        </div>
+        </motion.div>
 
         <h3>Image carousels</h3>
         <p>
@@ -115,22 +169,35 @@ const snakesOfTaiwan = function ({ data }) {
           at once and the images can also be viewed full screen. The images are
           lazy-loaded. Only the current, next and previous images are loaded.
         </p>
-        <div className="img-container--centered img-container--tall extra-padding-bottom">
+        <motion.div
+          variants={imageSlideInFromRightVariants}
+          initial="hidden"
+          animate={controls3}
+          ref={ref3}
+          className="img-container--centered img-container--tall extra-padding-bottom"
+        >
           <GatsbyImage
             image={snakesOfTaiwanInfo.darkModeImages[3].asset.gatsbyImageData}
             alt="Screenshot of image carousel"
           />
-        </div>
+        </motion.div>
         <h3>Species Search</h3>
         <p>
           A JavaScript filter function was used to search for species pages, in
           an unordered list, from the search input. The list is populated with
           species data from a JSON file, using Gulp, at build time.
         </p>
-        <GatsbyImage
-          image={snakesOfTaiwanInfo.darkModeImages[4].asset.gatsbyImageData}
-          alt="Screenshot of species search input"
-        />
+        <motion.div
+          variants={imageSlideInFromLeftVariants}
+          initial="hidden"
+          animate={controls4}
+          ref={ref4}
+        >
+          <GatsbyImage
+            image={snakesOfTaiwanInfo.darkModeImages[4].asset.gatsbyImageData}
+            alt="Screenshot of species search input"
+          />
+        </motion.div>
       </section>
 
       <section>
@@ -169,7 +236,7 @@ const snakesOfTaiwan = function ({ data }) {
   );
 };
 
-export default snakesOfTaiwan;
+export default SnakesOfTaiwanPage;
 
 export const query = graphql`
   query snakesOfTaiwanPageQuery {
