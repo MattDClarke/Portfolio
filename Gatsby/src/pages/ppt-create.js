@@ -1,10 +1,9 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FiGithub } from 'react-icons/fi';
 import { FaExternalLinkAlt } from 'react-icons/fa';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 import { ThemeContext } from '../components/ThemeContext';
 import { ProjectPageStyles } from '../components/ProjectPageStyles/ProjectPageStyles';
 import {
@@ -17,55 +16,6 @@ import SEO from '../components/SEO';
 const PptCreatePage = function ({ data }) {
   const pptCreateInfo = data.pptCreate.edges[0].node;
   const { colorMode } = useContext(ThemeContext);
-  const controls1 = useAnimation();
-  const controls2 = useAnimation();
-  const controls3 = useAnimation();
-  const controls4 = useAnimation();
-  const controls5 = useAnimation();
-  const controls6 = useAnimation();
-
-  const [ref1, inView1] = useInView();
-  const [ref2, inView2] = useInView();
-  const [ref3, inView3] = useInView();
-  const [ref4, inView4] = useInView();
-  const [ref5, inView5] = useInView();
-  const [ref6, inView6] = useInView();
-
-  useEffect(() => {
-    if (inView1) {
-      controls1.start('visible');
-    }
-  }, [controls1, inView1]);
-
-  useEffect(() => {
-    if (inView2) {
-      controls2.start('visible');
-    }
-  }, [controls2, inView2]);
-
-  useEffect(() => {
-    if (inView3) {
-      controls3.start('visible');
-    }
-  }, [controls3, inView3]);
-
-  useEffect(() => {
-    if (inView4) {
-      controls4.start('visible');
-    }
-  }, [controls4, inView4]);
-
-  useEffect(() => {
-    if (inView5) {
-      controls5.start('visible');
-    }
-  }, [controls5, inView5]);
-
-  useEffect(() => {
-    if (inView6) {
-      controls6.start('visible');
-    }
-  }, [controls6, inView6]);
 
   return (
     <>
@@ -160,8 +110,8 @@ const PptCreatePage = function ({ data }) {
             className="img-container--centered"
             variants={imageSlideInFromRightVariants}
             initial="hidden"
-            animate={controls1}
-            ref={ref1}
+            whileInView="visible"
+            viewport={{ once: true }}
           >
             <GatsbyImage
               image={
@@ -240,8 +190,8 @@ const PptCreatePage = function ({ data }) {
             className="extra-padding-bottom"
             variants={imageSlideInFromLeftVariants}
             initial="hidden"
-            animate={controls2}
-            ref={ref2}
+            whileInView="visible"
+            viewport={{ once: true }}
           >
             <GatsbyImage
               image={
@@ -267,8 +217,8 @@ const PptCreatePage = function ({ data }) {
             className="imgs-container img-container--tall extra-padding-bottom"
             variants={imageSlideInFromRightVariants}
             initial="hidden"
-            animate={controls3}
-            ref={ref3}
+            whileInView="visible"
+            viewport={{ once: true }}
           >
             <GatsbyImage
               image={
@@ -301,8 +251,8 @@ const PptCreatePage = function ({ data }) {
             className="extra-padding-bottom"
             variants={imageSlideInFromLeftVariants}
             initial="hidden"
-            animate={controls4}
-            ref={ref4}
+            whileInView="visible"
+            viewport={{ once: true }}
           >
             <GatsbyImage
               image={
@@ -330,8 +280,8 @@ const PptCreatePage = function ({ data }) {
             className="imgs-container extra-padding-bottom"
             variants={imageSlideInFromRightVariants}
             initial="hidden"
-            animate={controls5}
-            ref={ref5}
+            whileInView="visible"
+            viewport={{ once: true }}
           >
             <GatsbyImage
               image={
@@ -373,8 +323,8 @@ const PptCreatePage = function ({ data }) {
             className="img-container--tall"
             variants={imageSlideInFromLeftVariants}
             initial="hidden"
-            animate={controls6}
-            ref={ref6}
+            whileInView="visible"
+            viewport={{ once: true }}
           >
             <GatsbyImage
               image={
@@ -439,7 +389,7 @@ export const query = graphql`
         node {
           lightModeImages {
             asset {
-              gatsbyImageData(placeholder: BLURRED)
+              gatsbyImageData(placeholder: BLURRED, width: 500)
             }
           }
           projectPageInfo {
@@ -448,7 +398,7 @@ export const query = graphql`
           }
           darkModeImages {
             asset {
-              gatsbyImageData(placeholder: BLURRED)
+              gatsbyImageData(placeholder: BLURRED, width: 500)
             }
           }
         }

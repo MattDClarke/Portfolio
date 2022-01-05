@@ -1,6 +1,5 @@
-import React, { useContext, useEffect } from 'react';
-import { useAnimation, motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import React, { useContext } from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'gatsby';
 import { FaChevronRight, FaExternalLinkAlt } from 'react-icons/fa';
 import { FiGithub } from 'react-icons/fi';
@@ -174,21 +173,13 @@ const Project = function ({ project }) {
   } = project;
 
   const { colorMode } = useContext(ThemeContext);
-  const controls = useAnimation();
-  const [ref, inView] = useInView();
-
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible');
-    }
-  }, [controls, inView]);
 
   return (
     <ProjectStyles
       variants={projectVariants}
       initial="hidden"
-      animate={controls}
-      ref={ref}
+      whileInView="visible"
+      viewport={{ once: true }}
     >
       <div className="info">
         <h3>{name}</h3>
@@ -216,7 +207,8 @@ const Project = function ({ project }) {
           className="tech-labels"
           variants={techLabelsVariants}
           initial="hidden"
-          animate={controls}
+          whileInView="visible"
+          viewport={{ once: true }}
         >
           {tech.map((item) => (
             <motion.div

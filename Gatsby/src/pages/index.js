@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import ContactForm from '../components/HomePage/ContactForm';
 import Illustration from '../components/HomePage/Illustration';
@@ -158,16 +157,6 @@ const contactVariants = {
 
 const IndexPage = function ({ data }) {
   const projects = data.projects.nodes;
-  // console.log(projects);
-
-  const controlsContact = useAnimation();
-  const [refContact, inViewContact] = useInView();
-
-  useEffect(() => {
-    if (inViewContact) {
-      controlsContact.start('visible');
-    }
-  }, [controlsContact, inViewContact]);
 
   return (
     <>
@@ -256,8 +245,8 @@ const IndexPage = function ({ data }) {
           <motion.div
             variants={contactVariants}
             initial="hidden"
-            animate={controlsContact}
-            ref={refContact}
+            whileInView="visible"
+            viewport={{ once: true }}
           >
             <ContactForm />
           </motion.div>
@@ -284,12 +273,12 @@ export const query = graphql`
         }
         imageHomePageDark {
           asset {
-            gatsbyImageData(placeholder: BLURRED)
+            gatsbyImageData(placeholder: BLURRED, width: 600)
           }
         }
         imageHomePageLight {
           asset {
-            gatsbyImageData(placeholder: BLURRED)
+            gatsbyImageData(placeholder: BLURRED, width: 600)
           }
         }
       }
