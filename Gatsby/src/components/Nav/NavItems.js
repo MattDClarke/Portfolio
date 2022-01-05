@@ -103,7 +103,7 @@ const NavItems = function () {
 
   return (
     <NavItemStyles open={open} ref={ref}>
-      <button type="button" onClick={setOpen}>
+      <button type="button" onClick={setOpen} aria-label="menu">
         <div />
         <div />
         <div />

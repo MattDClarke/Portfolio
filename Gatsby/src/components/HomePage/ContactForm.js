@@ -30,7 +30,7 @@ const ContactForm = function () {
 
   return (
     <>
-      <MsgSnackbar msgSuccess={msgSuccess} />
+      {msgSuccess && <MsgSnackbar msgSuccess={msgSuccess} />}
 
       <Formik
         initialValues={{
@@ -51,12 +51,12 @@ const ContactForm = function () {
           </small>
 
           <label htmlFor="email">Email</label>
-          <Field name="email" type="email" />
+          <Field id="email" name="email" type="email" />
           <small>
             <ErrorMessage name="email" />
           </small>
           <label htmlFor="message">Message</label>
-          <Field name="message" type="text" as="textarea" />
+          <Field id="message" name="message" type="text" as="textarea" />
           <small>
             <ErrorMessage name="message" />
           </small>

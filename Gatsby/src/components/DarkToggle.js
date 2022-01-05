@@ -88,6 +88,7 @@ const DarkToggle = function () {
         type="checkbox"
         checked={colorMode === 'dark'}
         onChange={handleToggle}
+        aria-label="Dark mode - light mode toggle"
       />
       <span className="slider">
         <span className="slider-thumb">

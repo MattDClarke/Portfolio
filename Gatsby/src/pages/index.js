@@ -158,7 +158,7 @@ const contactVariants = {
 
 const IndexPage = function ({ data }) {
   const projects = data.projects.nodes;
-  console.log(projects);
+  // console.log(projects);
 
   const controlsContact = useAnimation();
   const [refContact, inViewContact] = useInView();

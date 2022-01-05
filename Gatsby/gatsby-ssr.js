@@ -1,5 +1,6 @@
 import React from 'react';
 import Terser from 'terser';
+import Layout from './src/components/Layout';
 
 import {
   COLOR_MODE_KEY,
@@ -101,4 +102,8 @@ export const onRenderBody = ({ setPreBodyComponents, setHeadComponents }) => {
   setPreBodyComponents(<MagicScriptTag />);
 };
 
-export const wrapPageElement = ({ element }) => <App>{element}</App>;
+export function wrapPageElement({ element, props }) {
+  return <Layout {...props}>{element}</Layout>;
+}
+
+export const wrapRootElement = ({ element }) => <App>{element}</App>;
