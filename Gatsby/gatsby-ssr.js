@@ -1,6 +1,8 @@
 import React from 'react';
 import Terser from 'terser';
 import Layout from './src/components/Layout';
+import GlobalStyles from './src/styles/GlobalStyles';
+import Typography from './src/styles/Typography';
 
 import {
   COLOR_MODE_KEY,
@@ -103,7 +105,13 @@ export const onRenderBody = ({ setPreBodyComponents, setHeadComponents }) => {
 };
 
 export function wrapPageElement({ element, props }) {
-  return <Layout {...props}>{element}</Layout>;
+  return (
+    <>
+      <GlobalStyles />
+      <Typography />
+      <Layout {...props}>{element}</Layout>
+    </>
+  );
 }
 
 export const wrapRootElement = ({ element }) => <App>{element}</App>;
