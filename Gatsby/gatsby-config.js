@@ -1,8 +1,8 @@
-import dotenv from 'dotenv';
+const dotenv = require('dotenv');
 
 dotenv.config({ path: '.env' });
 
-export default {
+module.exports = {
   siteMetadata: {
     title: `Matt D. Clarke's portfolio`,
     description: `Web developer portfolio and blog`,

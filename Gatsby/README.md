@@ -14,7 +14,7 @@
 - Styled components
 - Form back-end API: Formspree
 - Form Validation: Formik and Yup
-- Animation: Framer Motion, React Intersection Observer
+- Animation: Framer Motion
 - Backend CMS: Sanity - For storing images and blog posts
   <br>
   <br>
@@ -24,5 +24,3 @@
 - run `npm start` to run `npm run develop`
 - build: `npm run build`
 - serve: `npm run serve`
-
-> npm scripts include options to allow use of es modules
