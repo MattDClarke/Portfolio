@@ -21,3 +21,6 @@ A custom made portfolio website.
 ## Development
 
 - see README's in the Gatsby and Sanity folders
+
+  <br>
+  <br>
