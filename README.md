@@ -5,7 +5,7 @@
 
 ## About
 
-A custom made portfolio website with a blog.
+A custom made portfolio website.
 
   <br>
   <br>

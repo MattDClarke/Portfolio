@@ -24,3 +24,5 @@
 - run `npm start` to run `npm run develop`
 - build: `npm run build`
 - serve: `npm run serve`
+
+> npm scripts include options to allow use of es modules
