@@ -5,7 +5,7 @@ dotenv.config({ path: '.env' });
 module.exports = {
   siteMetadata: {
     title: `Matt D. Clarke's portfolio`,
-    description: `Web developer portfolio and blog`,
+    description: `Web developer portfolio`,
     siteUrl: 'https://www.mattdclarke.tech',
   },
   plugins: [
