@@ -52,22 +52,22 @@ const MsgSnackbarStyles = styled.label`
       min-width: 50px;
     }
     to {
-      min-width: 350px;
+      min-width: 250px;
     }
   }
 
   @keyframes stay {
     from {
-      min-width: 350px;
+      min-width: 250px;
     }
     to {
-      min-width: 350px;
+      min-width: 250px;
     }
   }
 
   @keyframes shrink {
     from {
-      min-width: 350px;
+      min-width: 250px;
     }
     to {
       min-width: 50px;

@@ -7,7 +7,12 @@ import MsgSnackbar from './MsgSnackbar';
 const ContactForm = function () {
   const [formspreeState, formspreeHandleSubmit] = useForm('contact');
   const [msgSuccess, setMsgSuccess] = useState(null);
+  const [pageLoaded, setPageLoaded] = useState(false);
   const msgResetDelay = 5;
+
+  useEffect(() => {
+    setPageLoaded(true);
+  }, []);
 
   useEffect(() => {
     if (formspreeState.succeeded) {
@@ -30,7 +35,7 @@ const ContactForm = function () {
 
   return (
     <>
-      {msgSuccess && <MsgSnackbar msgSuccess={msgSuccess} />}
+      {pageLoaded && <MsgSnackbar msgSuccess={msgSuccess} />}
 
       <Formik
         initialValues={{
