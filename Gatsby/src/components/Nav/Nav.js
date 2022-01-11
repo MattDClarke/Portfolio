@@ -5,7 +5,7 @@ import NavItems from './NavItems';
 
 const NavStyles = styled.nav`
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   font-weight: 700;
   .logo a {

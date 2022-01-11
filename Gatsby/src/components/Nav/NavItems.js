@@ -10,7 +10,7 @@ const NavItemStyles = styled.nav`
   button {
     display: none;
     width: 1.5rem;
-    height: 1.5rem;
+    height: 1.2rem;
     padding: 0;
     margin: 0;
     z-index: 2;
@@ -34,7 +34,7 @@ const NavItemStyles = styled.nav`
 
     div {
       width: 100%;
-      height: 0.17rem;
+      height: 0.13rem;
       background-color: var(--color-text);
       border-radius: 5px;
       transition: all 0.3s linear;
