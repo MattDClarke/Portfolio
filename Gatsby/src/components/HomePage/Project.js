@@ -52,10 +52,12 @@ const ProjectStyles = styled(motion.div)`
     grid-area: img;
     align-self: center;
     transition: all 0.3s ease-in-out;
+    border-radius: 6px;
+    max-width: 600px;
 
     &:hover,
     &:focus {
-      box-shadow: 3px 3px 3px var(--color-gray-400);
+      box-shadow: 3px 3px 3px var(--color-gray-300);
     }
   }
 

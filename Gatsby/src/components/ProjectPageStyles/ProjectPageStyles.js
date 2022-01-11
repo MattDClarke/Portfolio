@@ -29,7 +29,7 @@ export const ProjectPageStyles = styled.div`
     margin: 1.5rem 1rem;
     /* margin-right: 1rem; */
     /* padding: 0 1rem; */
-    box-shadow: 3px 3px 3px var(--color-gray-400);
+    box-shadow: 3px 3px 3px var(--color-gray-300);
     max-width: 500px;
 
     @media (max-width: 600px) {

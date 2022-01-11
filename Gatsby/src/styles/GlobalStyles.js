@@ -165,7 +165,7 @@ const GlobalStyles = createGlobalStyle`
     color: var(--color-background);
     background-color: var(--color-secondary);
     border-radius: 3px;
-    box-shadow: 1px 2px 6px var(--color-gray-400);
+    box-shadow: 1px 2px 6px var(--color-gray-300);
     transition: opacity 0.3s ease-in-out;
   }
 
@@ -270,6 +270,10 @@ const GlobalStyles = createGlobalStyle`
     @media (max-width: 600px) {
       font-size: 1rem;
     }
+  }
+
+  .gatsby-image-wrapper {
+    border-radius: 6px;
   }
 
 `;
