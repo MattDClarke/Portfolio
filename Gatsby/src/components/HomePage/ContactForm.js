@@ -44,8 +44,9 @@ const ContactForm = function () {
           message: '',
         }}
         validationSchema={contactValidationSchema}
-        onSubmit={(values) => {
+        onSubmit={(values, { resetForm }) => {
           formspreeHandleSubmit(values);
+          resetForm();
         }}
       >
         <Form>
