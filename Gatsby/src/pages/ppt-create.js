@@ -67,15 +67,15 @@ const PptCreatePage = function ({ data }) {
             images, the new vocabulary word and a translation. They were tedious
             to edit. I wanted to automate the process. I learned how to use
             PowerPoint Macros to automate positioning images. This was a slight
-            improvement. I then made an{' '}
+            improvement. I then made an image and translation downloader{' '}
             <a
               href="https://github.com/MattDClarke/Image-and-Translation-Downloader"
               target="_blank"
               rel="noopener noreferrer"
               className="text-link"
             >
-              Image and translation downloader application
-            </a>{' '}
+              app{' '}
+            </a>
             to automate the task even further. In this app, a list of vocabulary
             words is added to a form and submitted to a back end. An automated
             browser is then run using Selenium. It was used to obtain Korean
@@ -141,18 +141,10 @@ const PptCreatePage = function ({ data }) {
           </ul>
           <h3>Back-end</h3>
           <p>
-            Redis, along with{' '}
-            <a
-              href="https://www.npmjs.com/package/rate-limiter-flexible"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-link"
-            >
-              node-rate-limiter-flexible
-            </a>
-            , was used for rate limiting certain routes. This was done to
-            protect from brute force attacks and for rate-limiting the APIs for
-            each user. Cloudinary was used to store textbook cover images.
+            Redis, along with node-rate-limiter-flexible , was used for rate
+            limiting certain routes. This was done to protect from brute force
+            attacks and for rate-limiting the APIs for each user. Cloudinary was
+            used to store textbook cover images.
           </p>
           <ul className="skills-list">
             <li>Express</li>

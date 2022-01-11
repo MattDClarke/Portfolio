@@ -9,7 +9,7 @@ const NavItemStyles = styled.nav`
   display: flex;
   button {
     display: none;
-    width: 1.5rem;
+    width: 1.6rem;
     height: 1.2rem;
     padding: 0;
     margin: 0;
@@ -52,7 +52,7 @@ const NavItemStyles = styled.nav`
       &:nth-child(3) {
         transform: ${({ open }) =>
           open
-            ? 'rotate(-45deg) translateY(-200%) translateX(25%)'
+            ? 'rotate(-45deg) translateY(-160%) translateX(25%)'
             : 'rotate(0)'};
       }
     }
