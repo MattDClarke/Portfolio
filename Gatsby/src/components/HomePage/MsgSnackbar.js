@@ -93,6 +93,7 @@ const MsgSnackbar = function ({ msgSuccess }) {
     let onScroll;
     // only add event listener if msg
     if (msgSuccess !== null) {
+      setScrollTop(window.scrollY);
       onScroll = (e) => {
         setScrollTop(e.target.documentElement.scrollTop);
       };
