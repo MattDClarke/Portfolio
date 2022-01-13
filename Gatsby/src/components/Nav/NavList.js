@@ -104,7 +104,7 @@ const NavList = function ({ open, setOpen }) {
       <ul open={open}>
         <li className="item-projects">
           <Link to="/#projects" onClick={() => setOpen(false)}>
-            My Projects
+            My projects
           </Link>
         </li>
         <li className="item-contact">

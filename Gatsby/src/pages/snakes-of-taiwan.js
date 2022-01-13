@@ -39,7 +39,7 @@ const SnakesOfTaiwanPage = function ({ data }) {
               className="text-link"
             >
               <title id="gitHub">GitHub</title>
-              <span>Source Code</span>
+              <span>Source code</span>
               <FiGithub />
             </a>
           ) : (
@@ -69,9 +69,9 @@ const SnakesOfTaiwanPage = function ({ data }) {
             information and nice, useful pictures but the website was a bit
             outdated, it was not mobile-friendly. I had recently started
             learning how to program so I thought that it would be a good project
-            to update the website. I contacted the them and offered to update
-            their website. They accepted the offer and in the end, they were
-            happy with the website re-design.
+            to update the website. I contacted them and offered to update their
+            website. They accepted the offer and in the end, they were happy
+            with the website re-design.
           </p>
           <motion.div
             className="imgs-container"
@@ -96,11 +96,11 @@ const SnakesOfTaiwanPage = function ({ data }) {
         </section>
 
         <section>
-          <h2>Tech Stack</h2>
+          <h2>Tech stack</h2>
           <p>
-            Nunjucks was used as a templating language and Gulp was used to
-            build HTML pages from the Nunjucks templates. Gulp and Python were
-            used to create different sized images for different devices.
+            Gulp was used to build HTML pages from the Nunjucks templates. Gulp
+            and Python were used to create different sized images for different
+            devices.
           </p>
           <ul className="skills-list">
             <li>Nunjucks</li>
@@ -112,8 +112,8 @@ const SnakesOfTaiwanPage = function ({ data }) {
         </section>
 
         <section>
-          <h2>Key Features</h2>
-          <h3>Multilingual - English and Chinese pages</h3>
+          <h2>Key features</h2>
+          <h3>Multilingual - English and Chinese</h3>
           <p>
             For each page, two Nunjucks templates were created. One for English
             and one for Chinese. Different fonts were used for English text and
@@ -161,11 +161,12 @@ const SnakesOfTaiwanPage = function ({ data }) {
               alt="Screenshot of image carousel"
             />
           </motion.div>
-          <h3>Species Search</h3>
+          <h3>Species search</h3>
           <p>
             A JavaScript filter function was used to search for species pages,
-            in an unordered list, from the search input. The list is populated
-            with species data from a JSON file, using Gulp, at build time.
+            in a list of page links, from the search input in the navigation
+            bar. The list is populated with species data from a JSON file, using
+            Gulp, at build time.
           </p>
 
           <motion.div
@@ -182,7 +183,7 @@ const SnakesOfTaiwanPage = function ({ data }) {
         </section>
 
         <section>
-          <h2>Difficult Problems Faced</h2>
+          <h2>Difficult problems faced</h2>
           <h3>Creating image variants</h3>
           <p>
             I naively made all of the image variants myself. I used Gulp,{' '}
@@ -204,14 +205,14 @@ const SnakesOfTaiwanPage = function ({ data }) {
         </section>
 
         <section>
-          <h2>Future Improvements</h2>
+          <h2>Future improvements</h2>
           <p>
-            The website host uses FTP to upload files. For future updates, I
-            would suggest the owners change to a more modern Git integrated host
-            such as Netlify. This would make updating and testing the website
-            much easier. I would also make use of a cloud-based image host such
-            as Cloudinary to store images and dynamically generate responsive
-            image sizes.
+            The current website hosting platform uses FTP to upload files. For
+            future updates, I would move the site to a host that has Git
+            integration, such as Netlify. This would make updating and testing
+            the website much easier. I would also make use of a cloud-based
+            image host, such as Cloudinary, to store images and dynamically
+            generate responsive image sizes.
           </p>
         </section>
       </ProjectPageStyles>

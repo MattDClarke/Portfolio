@@ -1,11 +1,11 @@
-# Sanity - Backend CMS
+# Sanity: Back-end CMS
 
   <br>
   <br>
 
 ## About
 
-- Used to store images, project information and blog posts.
+- Used to store images, project information and blog posts (blog will be added later).
 
   <br>
   <br>

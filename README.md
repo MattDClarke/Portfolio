@@ -12,7 +12,7 @@ A custom made portfolio website.
 
 ## Tech used
 
-- Gatsby: Front-end static website generator
+- Gatsby: Static website generator
 - Sanity: Back-end CMS
 
   <br>

@@ -1,4 +1,4 @@
-# Gatsby - Front-end
+# Gatsby - Front End
 
   <br>
   <br>
@@ -15,7 +15,7 @@
 - Form back-end API: Formspree
 - Form Validation: Formik and Yup
 - Animation: Framer Motion
-- Backend CMS: Sanity - For storing images and blog posts (blog to be added later)
+- Back-end CMS: Sanity - For storing images and blog posts (blog to be added later)
   <br>
   <br>
 

@@ -234,7 +234,7 @@ const IndexPage = function ({ data }) {
         </motion.section>
 
         <section>
-          <h2 id="projects">My Projects</h2>
+          <h2 id="projects">My projects</h2>
           {projects.map((project) => (
             <Project project={project} key={project.id} />
           ))}
