@@ -193,9 +193,7 @@ const IndexPage = function ({ data }) {
                 to="/#projects"
                 className="internal-link"
                 title="Projects"
-              >
-                My Projects
-              </AnchorLink>
+              />
             </motion.div>
           </div>
           <Illustration />

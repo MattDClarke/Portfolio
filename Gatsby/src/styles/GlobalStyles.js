@@ -100,20 +100,39 @@ const GlobalStyles = createGlobalStyle`
   }
 
   button {
-    display: block;
-    background: var(--color-primary);
-    border: 2px solid hsl(0deg, 0%, 10%);
-    --cast: 3px;
-    box-shadow: 0 var(--cast) 0 0 hsl(0deg, 0%, 10%);
+    display: inline-block;
+    position: relative;
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: var(--color-background);
+    background: var(--color-text);
     padding: 0.6rem 1rem;
     margin: 1rem 0;
-    border-radius: 6px;
+    border: 0;
     cursor: pointer;
-    transition: all 0.3s;
+
+    :after {
+      position: absolute;
+      content: attr(data-content);;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border: 2px solid var(--color-text);
+      background-color: var(--color-primary);
+      color: var(--color-background);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translate(-.2rem,-.2rem);
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1);
+    }
+
     &:hover,
     &:focus {
-      --cast: 2.5px;
-      opacity: 0.9;
+      :after {
+        transform: translate(0);
+      }
     }
     &[disabled] {
       opacity: 0.5;
@@ -238,33 +257,45 @@ const GlobalStyles = createGlobalStyle`
 
   .internal-link {
     display: inline-block;
+    position: relative;
     font-size: 1.15rem;
     font-weight: bold;
     color: var(--color-background);
-    background: var(--color-primary);
-    border: 2px solid hsl(0deg, 0%, 10%);
-    --cast: 3px;
-    box-shadow: 0 var(--cast) 0 0 hsl(0deg, 0%, 10%);
+    background: var(--color-text);
     padding: 0.6rem 1rem;
-    border-radius: 6px;
     cursor: pointer;
-    transition: all 0.3s;
+
+    :after {
+      position: absolute;
+      content: attr(title);
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border: 2px solid var(--color-text);
+      background-color: var(--color-primary);
+      color: var(--color-background);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translate(-.2rem,-.2rem);
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1);
+    }
 
     &:hover,
     &:focus {
-      --cast: 2.5px;
-      opacity: 0.9;
+      :after {
+        transform: translate(0);
+      }
     }
 
     // only add outline if keyboard navigation
     &:focus-visible {
       outline: 2px auto var(--color-primary);
-      outline-offset: 1px;
     }
 
     @media (max-width: 900px) {
       padding: 0.42rem 0.7rem;
-      border-radius: 4.2px;
     }
 
     @media (max-width: 600px) {

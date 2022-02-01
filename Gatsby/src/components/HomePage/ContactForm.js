@@ -66,7 +66,11 @@ const ContactForm = function () {
           <small>
             <ErrorMessage name="message" />
           </small>
-          <button type="submit" disabled={formspreeState.submitting}>
+          <button
+            type="submit"
+            disabled={formspreeState.submitting}
+            data-content={formspreeState.submitting ? 'Sending...' : 'Send'}
+          >
             {formspreeState.submitting ? 'Sending...' : 'Send'}
           </button>
         </Form>
