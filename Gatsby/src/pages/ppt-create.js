@@ -82,9 +82,9 @@ const PptCreatePage = function ({ data }) {
             translations for the words from Papago (a translation website) and
             images from Bing. I am no longer an English teacher, but I thought
             it would be a cool project to improve the app even further. I wanted
-            to make a version that was more user friendly for English teachers
-            in Korea. The purpose of the app is to speed up the process of
-            creating PowerPoint presentations that introduce new vocabulary.
+            to make a version that was more user friendly. The purpose of the
+            app is to speed up the process of creating PowerPoint presentations
+            that introduce new vocabulary.
           </p>
         </section>
 

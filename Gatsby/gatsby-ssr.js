@@ -99,9 +99,9 @@ const FallbackStyles = function () {
 // lifecycle method that Gatsby exposes - runs function when generating HTML during build process
 export const onRenderBody = ({ setPreBodyComponents, setHeadComponents }) => {
   // set defaults incase JS disabled - else would cause no colors (CSS variables not set)
-  setHeadComponents(<FallbackStyles />);
+  setHeadComponents(<FallbackStyles key="fallback-styles" />);
   // injects React component above everything else, within <body>
-  setPreBodyComponents(<MagicScriptTag />);
+  setPreBodyComponents(<MagicScriptTag key="magic-script" />);
 };
 
 export function wrapPageElement({ element, props }) {

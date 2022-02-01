@@ -59,19 +59,19 @@ const SnakesOfTaiwanPage = function ({ data }) {
 
         <section>
           <p>
-            Just before the COVID-19 pandemic started, I went to Taiwan for a
-            vacation. Being somewhat of an amateur naturalist, I was interested
-            in learning about the snakes on the island. I found a website called
-            Snakes of Taiwan, it is the most comprehensive online field guide
-            about the snakes of Taiwan. It was made by two local snake
-            enthusiasts. They have given educational talks at schools, written
-            news articles and have appeared in news reports. It had good
-            information and nice, useful pictures but the website was a bit
-            outdated, it was not mobile-friendly. I had recently started
-            learning how to program so I thought that it would be a good project
-            to update the website. I contacted them and offered to update their
-            website. They accepted the offer and in the end, they were happy
-            with the website re-design.
+            Just before the COVID-19 pandemic started, I spent some time in
+            Taiwan. Being somewhat of an amateur naturalist, I was interested in
+            learning about the snakes on the island. I found a website called
+            Snakes of Taiwan, it was the most comprehensive online field guide
+            of the region's snakes. It was made by two local snake enthusiasts
+            who have given educational talks at schools, written news articles
+            and have featured in news reports. The site had good information and
+            clear, useful pictures but it was a bit outdated, it was not
+            mobile-friendly. I had recently started learning how to program so I
+            thought that it would be a good project to update the website. I
+            contacted them and offered to update their website. They accepted
+            the offer and in the end, they were happy with the website
+            re-design.
           </p>
           <motion.div
             className="imgs-container"

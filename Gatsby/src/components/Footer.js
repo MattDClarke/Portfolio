@@ -84,7 +84,7 @@ const Footer = function () {
         whileHover={{ scale: 1.1 }}
         transition={{ type: 'spring', stiffness: 500 }}
       >
-        © <Link to="/">Matt D. Clarke</Link> 2021
+        © <Link to="/">Matt D. Clarke</Link> 2022
       </motion.span>
     </FooterStyles>
   );
