@@ -24,11 +24,11 @@ const letterAnimationVariants = {
   },
 };
 
-const AnimatedLetters = function ({ title }) {
+const AnimatedLetters = function ({ title, isFirstPageView }) {
   return (
     <motion.span
       variants={lettersContainerVariants}
-      initial="initial"
+      initial={isFirstPageView ? 'hidden' : false}
       animate="animate"
       style={{
         position: 'relative',

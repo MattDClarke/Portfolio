@@ -298,7 +298,7 @@ const illustrationVariants = {
   },
 };
 
-const Illustration = function () {
+const Illustration = function ({ isFirstPageView }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   // when y changes from dragging - transform the value of rotateX -> rotating along x axis
@@ -348,7 +348,7 @@ const Illustration = function () {
   return (
     <IllustrationStyles
       variants={illustrationVariants}
-      initial="hidden"
+      initial={isFirstPageView ? 'hidden' : false}
       animate="visible"
     >
       <motion.div

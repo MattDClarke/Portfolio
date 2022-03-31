@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
@@ -8,6 +8,7 @@ import Illustration from '../components/HomePage/Illustration';
 import Project from '../components/HomePage/Project';
 import AnimatedLetters from '../components/animation/AnimatedLetters';
 import SEO from '../components/SEO';
+import { PageViewContext } from '../components/PageViewContext';
 
 const IndexPageStyles = styled.div`
   .container {
@@ -157,6 +158,9 @@ const contactVariants = {
 
 const IndexPage = function ({ data }) {
   const projects = data.projects.nodes;
+  const { pageViewCountIndex } = useContext(PageViewContext);
+  pageViewCountIndex.current += 1;
+  const isFirstPageView = !(pageViewCountIndex.current > 1);
 
   return (
     <>
@@ -172,7 +176,7 @@ const IndexPage = function ({ data }) {
           <div className="info">
             <motion.h1
               variants={headerContainer}
-              initial="hidden"
+              initial={isFirstPageView ? 'hidden' : false}
               animate="visible"
             >
               <motion.span variants={headerItem}>Hi, I’m Matt.</motion.span>{' '}
@@ -181,12 +185,16 @@ const IndexPage = function ({ data }) {
                 I’m a Full Stack <br />
               </motion.span>
               <motion.span variants={headerItem} className="color-primary">
-                JavaScript <AnimatedLetters title="Developer" />
+                JavaScript{' '}
+                <AnimatedLetters
+                  title="Developer"
+                  isFirstPageView={isFirstPageView}
+                />
               </motion.span>
             </motion.h1>
             <motion.div
               variants={linkButtonVariants}
-              initial="hidden"
+              initial={isFirstPageView ? 'hidden' : false}
               animate="visible"
             >
               <AnchorLink
@@ -196,19 +204,19 @@ const IndexPage = function ({ data }) {
               />
             </motion.div>
           </div>
-          <Illustration />
+          <Illustration isFirstPageView={isFirstPageView} />
         </div>
 
         <motion.div
           className="scroll-indicator"
           variants={scrollIndicatorVariants}
-          initial="hidden"
+          initial={isFirstPageView ? 'hidden' : false}
           animate="visible"
         />
 
         <motion.section
           variants={skillsVariants}
-          initial="hidden"
+          initial={isFirstPageView ? 'hidden' : false}
           animate="visible"
         >
           <h2>My skills</h2>
@@ -234,7 +242,11 @@ const IndexPage = function ({ data }) {
         <section>
           <h2 id="projects">My projects</h2>
           {projects.map((project) => (
-            <Project project={project} key={project.id} />
+            <Project
+              project={project}
+              key={project.id}
+              isFirstPageView={isFirstPageView}
+            />
           ))}
         </section>
 
@@ -242,7 +254,7 @@ const IndexPage = function ({ data }) {
           <h2 id="contact">Contact</h2>
           <motion.div
             variants={contactVariants}
-            initial="hidden"
+            initial={isFirstPageView ? 'hidden' : false}
             whileInView="visible"
             viewport={{ once: true }}
           >

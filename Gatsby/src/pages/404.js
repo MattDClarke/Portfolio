@@ -23,7 +23,7 @@ const NotFoundPage = function () {
     <NotFoundStyles>
       <h1>NOT FOUND</h1>
       <p>There is no page at this URL.</p>
-      <Link to="/" className="internal-link">
+      <Link to="/" className="internal-link" title="Go back to home page">
         Go back to home page
       </Link>
     </NotFoundStyles>

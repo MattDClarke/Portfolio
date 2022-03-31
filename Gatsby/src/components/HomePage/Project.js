@@ -162,7 +162,7 @@ const techLabelVariants = {
   },
 };
 
-const Project = function ({ project }) {
+const Project = function ({ project, isFirstPageView }) {
   const {
     slug,
     name,
@@ -179,7 +179,7 @@ const Project = function ({ project }) {
   return (
     <ProjectStyles
       variants={projectVariants}
-      initial="hidden"
+      initial={isFirstPageView ? 'hidden' : false}
       whileInView="visible"
       viewport={{ once: true }}
     >
@@ -208,7 +208,7 @@ const Project = function ({ project }) {
         <motion.div
           className="tech-labels"
           variants={techLabelsVariants}
-          initial="hidden"
+          initial={isFirstPageView ? 'hidden' : false}
           whileInView="visible"
           viewport={{ once: true }}
         >

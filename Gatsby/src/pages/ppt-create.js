@@ -12,10 +12,14 @@ import {
   imageSlideInFromRightVariants,
 } from '../components/animation/projectPageVariants';
 import SEO from '../components/SEO';
+import { PageViewContext } from '../components/PageViewContext';
 
 const PptCreatePage = function ({ data }) {
   const pptCreateInfo = data.pptCreate.edges[0].node;
   const { colorMode } = useContext(ThemeContext);
+  const { pageViewCountPptCreate } = useContext(PageViewContext);
+  pageViewCountPptCreate.current += 1;
+  const isFirstPageView = !(pageViewCountPptCreate.current > 1);
 
   return (
     <>
@@ -28,7 +32,11 @@ const PptCreatePage = function ({ data }) {
       />
 
       <ProjectPageStyles>
-        <motion.h1 variants={headerVariants} initial="hidden" animate="visible">
+        <motion.h1
+          variants={headerVariants}
+          initial={isFirstPageView ? 'hidden' : false}
+          animate="visible"
+        >
           ppt Create
         </motion.h1>
 
@@ -107,7 +115,7 @@ const PptCreatePage = function ({ data }) {
           <motion.div
             className="img-container--centered"
             variants={imageSlideInFromRightVariants}
-            initial="hidden"
+            initial={isFirstPageView ? 'hidden' : false}
             whileInView="visible"
             viewport={{ once: true }}
           >
@@ -179,7 +187,7 @@ const PptCreatePage = function ({ data }) {
           <motion.div
             className="extra-padding-bottom"
             variants={imageSlideInFromLeftVariants}
-            initial="hidden"
+            initial={isFirstPageView ? 'hidden' : false}
             whileInView="visible"
             viewport={{ once: true }}
           >
@@ -206,7 +214,7 @@ const PptCreatePage = function ({ data }) {
           <motion.div
             className="imgs-container img-container--tall extra-padding-bottom"
             variants={imageSlideInFromRightVariants}
-            initial="hidden"
+            initial={isFirstPageView ? 'hidden' : false}
             whileInView="visible"
             viewport={{ once: true }}
           >
@@ -240,7 +248,7 @@ const PptCreatePage = function ({ data }) {
           <motion.div
             className="extra-padding-bottom"
             variants={imageSlideInFromLeftVariants}
-            initial="hidden"
+            initial={isFirstPageView ? 'hidden' : false}
             whileInView="visible"
             viewport={{ once: true }}
           >
@@ -269,7 +277,7 @@ const PptCreatePage = function ({ data }) {
           <motion.div
             className="imgs-container extra-padding-bottom"
             variants={imageSlideInFromRightVariants}
-            initial="hidden"
+            initial={isFirstPageView ? 'hidden' : false}
             whileInView="visible"
             viewport={{ once: true }}
           >
@@ -312,7 +320,7 @@ const PptCreatePage = function ({ data }) {
           <motion.div
             className="img-container--tall"
             variants={imageSlideInFromLeftVariants}
-            initial="hidden"
+            initial={isFirstPageView ? 'hidden' : false}
             whileInView="visible"
             viewport={{ once: true }}
           >

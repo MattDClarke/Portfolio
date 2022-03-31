@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { FiGithub } from 'react-icons/fi';
@@ -11,9 +11,13 @@ import {
   imageSlideInFromRightVariants,
 } from '../components/animation/projectPageVariants';
 import SEO from '../components/SEO';
+import { PageViewContext } from '../components/PageViewContext';
 
 const SnakesOfTaiwanPage = function ({ data }) {
   const snakesOfTaiwanInfo = data.snakesOfTaiwan.edges[0].node;
+  const { pageViewCountSOT } = useContext(PageViewContext);
+  pageViewCountSOT.current += 1;
+  const isFirstPageView = !(pageViewCountSOT.current > 1);
 
   return (
     <>
@@ -26,7 +30,11 @@ const SnakesOfTaiwanPage = function ({ data }) {
       />
 
       <ProjectPageStyles>
-        <motion.h1 variants={headerVariants} initial="hidden" animate="visible">
+        <motion.h1
+          variants={headerVariants}
+          initial={isFirstPageView ? 'hidden' : false}
+          animate="visible"
+        >
           Snakes of Taiwan
         </motion.h1>
 
@@ -76,7 +84,7 @@ const SnakesOfTaiwanPage = function ({ data }) {
           <motion.div
             className="imgs-container"
             variants={imageSlideInFromRightVariants}
-            initial="hidden"
+            initial={isFirstPageView ? 'hidden' : false}
             whileInView="visible"
             viewport={{ once: true }}
           >
@@ -123,7 +131,7 @@ const SnakesOfTaiwanPage = function ({ data }) {
           <motion.div
             className="extra-padding-bottom"
             variants={imageSlideInFromLeftVariants}
-            initial="hidden"
+            initial={isFirstPageView ? 'hidden' : false}
             whileInView="visible"
             viewport={{ once: true }}
           >
@@ -151,7 +159,7 @@ const SnakesOfTaiwanPage = function ({ data }) {
           </p>
           <motion.div
             variants={imageSlideInFromRightVariants}
-            initial="hidden"
+            initial={isFirstPageView ? 'hidden' : false}
             whileInView="visible"
             viewport={{ once: true }}
             className="img-container--centered img-container--tall extra-padding-bottom"
@@ -171,7 +179,7 @@ const SnakesOfTaiwanPage = function ({ data }) {
 
           <motion.div
             variants={imageSlideInFromLeftVariants}
-            initial="hidden"
+            initial={isFirstPageView ? 'hidden' : false}
             whileInView="visible"
             viewport={{ once: true }}
           >
