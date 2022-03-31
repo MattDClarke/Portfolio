@@ -19,6 +19,40 @@ const FooterStyles = styled.footer`
   a {
     color: var(--color-text);
     transition: color 0.3s ease-in-out;
+  }
+
+  .link {
+    padding: 1rem;
+  }
+
+  .link-github {
+    &:hover {
+      color: var(--color-success);
+    }
+    &:focus {
+      color: var(--color-success);
+    }
+  }
+
+  .link-dev {
+    &:hover {
+      color: var(--color-error);
+    }
+    &:focus {
+      color: var(--color-error);
+    }
+  }
+
+  .link-codepen {
+    &:hover {
+      color: var(--color-alert);
+    }
+    &:focus {
+      color: var(--color-alert);
+    }
+  }
+
+  .link-home {
     &:hover {
       color: var(--color-primary);
     }
@@ -27,9 +61,6 @@ const FooterStyles = styled.footer`
     }
   }
 
-  .link {
-    padding: 1rem;
-  }
   .icon {
     width: 1em;
     margin: auto;
@@ -44,7 +75,7 @@ const Footer = function () {
           href="https://github.com/MattDClarke"
           target="_blank"
           rel="noopener noreferrer"
-          className="link"
+          className="link link-github"
         >
           <div className="icon">
             <FiGithub />
@@ -57,7 +88,7 @@ const Footer = function () {
           href="https://dev.to/mattdclarke"
           target="_blank"
           rel="noopener noreferrer"
-          className="link"
+          className="link link-dev"
         >
           <div className="icon">
             <FaDev />
@@ -70,7 +101,7 @@ const Footer = function () {
           href="https://codepen.io/MattDC1"
           target="_blank"
           rel="noopener noreferrer"
-          className="link"
+          className="link link-codepen"
         >
           <div className="icon">
             <FaCodepen />
@@ -84,7 +115,11 @@ const Footer = function () {
         whileHover={{ scale: 1.1 }}
         transition={{ type: 'spring', stiffness: 500 }}
       >
-        © <Link to="/">Matt D. Clarke</Link> 2022
+        ©{' '}
+        <Link to="/" className="link-home">
+          Matt D. Clarke
+        </Link>{' '}
+        2022
       </motion.span>
     </FooterStyles>
   );
