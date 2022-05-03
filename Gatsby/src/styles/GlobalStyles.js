@@ -174,11 +174,12 @@ const GlobalStyles = createGlobalStyle`
     content: attr(aria-label);
     opacity: 0;
     position: absolute;
-    top: 25px;
-    right: -15px;
+    left: 50%;
+    top: -100%;
+    transform: translatex(-50%);
     z-index: 1;
     pointer-events: none;
-    padding: 8px 10px;
+    padding: 1em;
     white-space: nowrap;
     font-size: 0.9rem;
     color: var(--color-background);

@@ -67,7 +67,7 @@ const IndexPageStyles = styled.div`
       border-radius: 100%;
       left: 0.35em;
       top: -0.25em;
-      animation: cursorMove 2s ease-in-out infinite alternate-reverse;
+      animation: cursorMove 2s ease-in-out 2s forwards;
       @keyframes cursorMove {
         0% {
           transform: translateY(0);
@@ -226,16 +226,16 @@ const IndexPage = function ({ data }) {
             experience with:
           </p>
           <ul className="skills-list">
-            <li>Figma</li>
-            <li>Git</li>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>SASS</li>
-            <li>JavaScript</li>
             <li>React</li>
+            <li>JavaScript</li>
             <li>Node</li>
             <li>Express</li>
             <li>MongoDB</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>SASS</li>
+            <li>Git</li>
+            <li>Figma</li>
           </ul>
         </motion.section>
 

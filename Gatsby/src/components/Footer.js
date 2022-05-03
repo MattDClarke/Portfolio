@@ -60,12 +60,9 @@ const FooterStyles = styled.footer`
       color: var(--color-primary);
     }
   }
-
-  .icon {
-    width: 1em;
-    margin: auto;
-  }
 `;
+
+const iconStyles = { fontSize: '1.75em' };
 
 const Footer = function () {
   return (
@@ -76,12 +73,11 @@ const Footer = function () {
           target="_blank"
           rel="noopener noreferrer"
           className="link link-github"
+          aria-label="GitHub"
         >
-          <div className="icon">
-            <FiGithub />
+          <div>
+            <FiGithub style={iconStyles} />
           </div>
-
-          <div>GitHub</div>
         </a>
 
         <a
@@ -89,12 +85,11 @@ const Footer = function () {
           target="_blank"
           rel="noopener noreferrer"
           className="link link-dev"
+          aria-label="DEV"
         >
-          <div className="icon">
-            <FaDev />
+          <div>
+            <FaDev style={iconStyles} />
           </div>
-
-          <div>DEV</div>
         </a>
 
         <a
@@ -102,12 +97,11 @@ const Footer = function () {
           target="_blank"
           rel="noopener noreferrer"
           className="link link-codepen"
+          aria-label="CodePen"
         >
-          <div className="icon">
-            <FaCodepen />
+          <div>
+            <FaCodepen style={iconStyles} />
           </div>
-
-          <div>CodePen</div>
         </a>
       </div>
 

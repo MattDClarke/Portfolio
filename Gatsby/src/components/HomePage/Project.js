@@ -238,7 +238,6 @@ const Project = function ({ project, isFirstPageView }) {
                 rel="noopener noreferrer"
                 aria-label="GitHub"
               >
-                <title id="gitHub">GitHub</title>
                 <FiGithub />
               </a>
             </span>
