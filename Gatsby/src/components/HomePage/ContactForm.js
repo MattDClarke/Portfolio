@@ -70,6 +70,7 @@ const ContactForm = function () {
             type="submit"
             disabled={formspreeState.submitting}
             data-content={formspreeState.submitting ? 'Sending...' : 'Send'}
+            style={{ display: 'block' }}
           >
             {formspreeState.submitting ? 'Sending...' : 'Send'}
           </button>
