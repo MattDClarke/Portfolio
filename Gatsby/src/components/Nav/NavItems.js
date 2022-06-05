@@ -26,6 +26,11 @@ const NavItemStyles = styled.nav`
       transform: none;
     }
 
+    &[aria-label]:hover:after,
+    &[aria-label]:focus:after {
+      opacity: 0;
+    }
+
     @media (max-width: 768px) {
       display: flex;
       justify-content: space-around;
