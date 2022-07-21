@@ -221,6 +221,38 @@ const GlobalStyles = createGlobalStyle`
       font-size: 0.9rem;
     }
   }
+  
+  .writing-list {
+    list-style: none;
+    padding-left: 0;
+    li {
+      padding: 0.5rem 0;
+      font-weight: 500;
+
+      &:before {
+        content: '';
+        background: var(--color-secondary);
+        width: 0.75rem;
+        height: 0.75rem; 
+        border-radius: 50%;
+        display: inline-block;
+        line-height: 0.5rem;
+        color: white;
+        text-align: center;
+        margin-right: 0.5rem;
+      }
+      
+      a {
+        color: var(--color-text);
+        text-decoration: underline;
+      }
+    }
+
+    @media (max-width: 600px) {
+      font-size: 0.9rem;
+    }
+  }
+
 
   .text-link {
     --rotate: -1deg;
@@ -228,7 +260,6 @@ const GlobalStyles = createGlobalStyle`
     position: relative;
     color: var(--color-text);
     transition: color 0.3s ease-in-out;
-
     &:before {
       height: 2px;
       position: absolute;

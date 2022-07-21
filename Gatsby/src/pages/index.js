@@ -158,6 +158,7 @@ const contactVariants = {
 
 const IndexPage = function ({ data }) {
   const projects = data.projects.nodes;
+  const writing = data.writing.nodes;
   const { pageViewCountIndex } = useContext(PageViewContext);
   pageViewCountIndex.current += 1;
   const isFirstPageView = !(pageViewCountIndex.current > 1);
@@ -228,6 +229,7 @@ const IndexPage = function ({ data }) {
           <ul className="skills-list">
             <li>React</li>
             <li>JavaScript</li>
+            <li>TypeScript</li>
             <li>Node</li>
             <li>Express</li>
             <li>MongoDB</li>
@@ -248,6 +250,35 @@ const IndexPage = function ({ data }) {
               isFirstPageView={isFirstPageView}
             />
           ))}
+        </section>
+
+        <section>
+          <h2>My technical writing</h2>
+          <motion.div
+            variants={contactVariants}
+            initial={isFirstPageView ? 'hidden' : false}
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <p>
+              Here's a selection of freelance technical writing that I have done
+              for <a href="https://ritza.co/">Ritza:</a>
+            </p>
+            <ul className="writing-list">
+              {writing.map(({ id, name, articleLink }) => (
+                <li>
+                  <a
+                    key={id}
+                    href={articleLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
         </section>
 
         <section>
@@ -291,6 +322,13 @@ export const query = graphql`
             gatsbyImageData(placeholder: BLURRED, width: 600)
           }
         }
+      }
+    }
+    writing: allSanityWriting(sort: { fields: [name], order: DESC }) {
+      nodes {
+        id
+        name
+        articleLink
       }
     }
   }
