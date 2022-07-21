@@ -262,7 +262,15 @@ const IndexPage = function ({ data }) {
           >
             <p>
               Here's a selection of freelance technical writing that I have done
-              for <a href="https://ritza.co/">Ritza:</a>
+              for{' '}
+              <a
+                href="https://ritza.co/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-link"
+              >
+                Ritza:
+              </a>
             </p>
             <ul className="writing-list">
               {writing.map(({ id, name, articleLink }) => (
