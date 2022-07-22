@@ -95,6 +95,10 @@ const IndexPageStyles = styled.div`
   #contact {
     margin-top: 3rem;
   }
+
+  #writing {
+    margin-top: 3rem;
+  }
 `;
 
 const headerContainer = {
@@ -253,7 +257,7 @@ const IndexPage = function ({ data }) {
         </section>
 
         <section>
-          <h2>My technical writing</h2>
+          <h2 id="writing">My technical writing</h2>
           <motion.div
             variants={contactVariants}
             initial={isFirstPageView ? 'hidden' : false}
